@@ -8,7 +8,6 @@
 public class Orc
 {
     // instance variables - replace the example below with your own
-    private String nome;
     private int vida;
     private boolean vivo;
     
@@ -16,11 +15,15 @@ public class Orc
     /**
      * Constructor for objects of class Orcs
      */
-    public Orc(String n)
+    public Orc()
     {
-        nome = n;
         vida = 110;
         vivo = true;
+    }
+    
+    public int getVida()
+    {
+        return vida;
     }
 
     public void receberFlechada()
