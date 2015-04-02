@@ -42,6 +42,24 @@ public class Elfo
         experiencia++;
     }
     
+    /**
+     * Atira flecha em um orc
+     */
+    public void atirarFlechaOrc(Orc o)
+    {
+        o.receberFlechada();
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     /*public void setFlechas(int novaQtdFlechas) {
         if (novaQtdFlechas > flechas) {
             flechas = novaQtdFlechas;
