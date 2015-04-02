@@ -38,8 +38,15 @@ public class Elfo
      */
     public void atirarFlecha() {
         //flechas = flechas - 1;
-        flechas--;
-        experiencia++;
+        if(flechas>0)
+        {
+            flechas--;
+            experiencia++;
+        }
+        else
+        {
+            System.out.println ("Você está sem Flechas!!!");
+        }
     }
     
     /**
@@ -47,6 +54,7 @@ public class Elfo
      */
     public void atirarFlechaOrc(Orc o)
     {
+        this.atirarFlecha();
         o.receberFlechada();
     }
     
