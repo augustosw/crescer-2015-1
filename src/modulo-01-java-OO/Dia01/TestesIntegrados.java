@@ -30,16 +30,4 @@ public class TestesIntegrados
         assertEquals(vidaEsperadaOrc1, orc1.getVida());
         assertEquals(vidaEsperadaOrc2, orc2.getVida());
     }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
 }

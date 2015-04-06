@@ -102,11 +102,13 @@ public class OrcTest
         
         assertEquals(esperado, resultadoObtido);
     }
+    
+    @Test
+    public void orcToStringRetornVidaPadrao()
+    {
+        Orc o = new Orc();
+        String resultadoObtido = o.toString();
+        String esperado = "Vida atual = 110";
+        assertEquals(esperado,resultadoObtido);
+    }
 }
-    
-    
-    
-
-
-
-

@@ -26,4 +26,16 @@ public class Orc
     {
         vida -=10;
     }
+    
+    /**
+     * Imprime a vida atual do Orc
+     * 
+     * @return String coma vida atual do orc. Ex:
+     * 
+     * "Vida atual: 110"
+     */
+    public String toString()
+    {
+        return "Vida atual: " +this.vida;
+    }
 }

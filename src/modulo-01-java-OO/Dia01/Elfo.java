@@ -65,6 +65,12 @@ public class Elfo
         experiencia++;
         umOrc.levarDano();
     }
+    
+    
+    public String toString()
+    {
+        return this.nome + " possui " + this.flechas + " flechas e " + this.experiencia + " níveis de experiência.";
+    }
 
     /*public void setFlechas(int novaQtdFlechas) {
         if (novaQtdFlechas > flechas) {
