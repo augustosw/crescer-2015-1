@@ -45,9 +45,9 @@ public class Elfo
     {
         return flechas;
     }
-    public int getExp()
+     public int getExperiencia() 
     {
-        return experiencia;
+        return this.experiencia;
     }
     public String getNome()
     {
@@ -65,6 +65,7 @@ public class Elfo
         experiencia++;
         umOrc.levarDano();
     }
+
     /*public void setFlechas(int novaQtdFlechas) {
         if (novaQtdFlechas > flechas) {
             flechas = novaQtdFlechas;
