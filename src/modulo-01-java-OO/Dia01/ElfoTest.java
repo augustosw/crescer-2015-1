@@ -148,6 +148,18 @@ public class ElfoTest
     }
     
     @Test
+    public void elfoToStringPadrao() {
+        // Arrange
+        Elfo elfo = new Elfo("Faustão");
+        String resultadoEsperado = "Faustão possui 42 flechas e 0 níveis de experiência.";
+        // Act
+        String resultadoObtido = elfo.toString();
+        // Assert
+        assertEquals(resultadoEsperado, resultadoObtido);
+    }
+    
+    
+    @Test
     public void elfoToStringRetornaStringCorreta()
     {
         Elfo e = new Elfo("Legolas");

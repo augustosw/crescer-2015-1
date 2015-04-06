@@ -104,6 +104,7 @@ public class OrcTest
     }
     
     @Test
+
     public void orcToStringRetornVidaPadrao()
     {
         Orc o = new Orc();
@@ -111,4 +112,50 @@ public class OrcTest
         String esperado = "Vida atual: 110";
         assertEquals(esperado,resultadoObtido);
     }
+    
+    @Test
+    public void orcToStringRetornaVidaPadrao() {
+        // Arrange
+        Orc orc = new Orc();
+        // Act
+        String resultadoObtido = orc.toString();
+        // Assert
+        String esperado = "Vida atual: 110";
+        assertEquals(esperado, resultadoObtido);
+    }
+    
+    @Test
+    public void orcToStringAposReceberAtaque() {
+        // Arrange
+        Orc orc = new Orc();
+        // Act
+        orc.levarDano();
+        String resultadoObtido = orc.toString();
+        // Assert
+        String esperado = "Vida atual: 100";
+        assertEquals(esperado, resultadoObtido);
+    }
+    
+    @Test
+    public void orcToStringAposReceberDozeAtaques() {
+        // Arrange - Montagem dos dados de teste
+        Orc umOrc = new Orc();
+        // Act
+        umOrc.levarDano();
+        umOrc.levarDano();
+        umOrc.levarDano();
+        umOrc.levarDano();
+        umOrc.levarDano();
+        umOrc.levarDano();
+        umOrc.levarDano();
+        umOrc.levarDano();
+        umOrc.levarDano();
+        umOrc.levarDano();
+        umOrc.levarDano();
+        umOrc.levarDano();
+        String resultadoObtido = umOrc.toString();
+        // Assert
+        String esperado = "Vida atual: -10";
+        assertEquals(esperado, resultadoObtido);
+    } 
 }
