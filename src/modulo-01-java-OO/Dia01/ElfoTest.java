@@ -26,9 +26,11 @@ public class ElfoTest
     public void expAumentaAoAtirarFlecha()
     {
         Elfo e;
+        Orc o;
         e = new Elfo("Teste");
+        o = new Orc();
         int expAtual = e.getExp();
-        e.atirarFlecha();
+        e.atirarFlecha(o);
         assertEquals(expAtual+1, e.getExp());
     }
     
@@ -40,7 +42,7 @@ public class ElfoTest
         e = new Elfo("Teste"); 
         o = new Orc();
         int vidaAtual = o.getVida();
-        e.atirarFlechaOrc(o);
+        e.atirarFlecha(o);
         assertEquals(vidaAtual, o.getVida()+10);
     }
     
@@ -48,9 +50,11 @@ public class ElfoTest
     public void numeroFlechasDiminiuAoAtirar()
     {
         Elfo e;
+        Orc o;
         e = new Elfo("Teste");
+        o = new Orc();
         int f = e.getFlechas();
-        e.atirarFlecha();
+        e.atirarFlecha(o);
         assertEquals(f-1, e.getFlechas());
     }
 }
