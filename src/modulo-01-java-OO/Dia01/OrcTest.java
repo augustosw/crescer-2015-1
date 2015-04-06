@@ -108,7 +108,7 @@ public class OrcTest
     {
         Orc o = new Orc();
         String resultadoObtido = o.toString();
-        String esperado = "Vida atual = 110";
+        String esperado = "Vida atual: 110";
         assertEquals(esperado,resultadoObtido);
     }
 }

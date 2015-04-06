@@ -69,7 +69,11 @@ public class Elfo
     
     public String toString()
     {
-        return this.nome + " possui " + this.flechas + " flechas e " + this.experiencia + " níveis de experiência.";
+        String textoFlechas = this.flechas == 1 ? " flecha" : " flechas";
+        String textoNiveis = this.experiencia == 1 ? " nível" : " níveis";
+        return this.nome + " possui " 
+             + this.flechas + textoFlechas + " e " 
+             + this.experiencia + textoNiveis + " de experiência.";
     }
 
     /*public void setFlechas(int novaQtdFlechas) {

@@ -7,7 +7,8 @@
 public class Orc
 {
     // instance variables - replace the example below with your own
-    private int vida;    
+    private int vida; 
+    private Status status;
 
     /**
      * Constructor for objects of class Orcs
@@ -15,6 +16,7 @@ public class Orc
     public Orc()
     {
         vida = 110;
+        status = Status.VIVO;
     }
     
     public int getVida()
@@ -24,7 +26,14 @@ public class Orc
 
     public void levarDano()
     {
-        vida -=10;
+       if(status == Status.VIVO)
+       {
+           vida -=10;
+           if(vida == 0)
+           {
+               status = Status.MORTO;
+           }
+       }
     }
     
     /**
