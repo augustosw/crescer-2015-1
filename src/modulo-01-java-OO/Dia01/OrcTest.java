@@ -26,6 +26,7 @@ public class OrcTest
     }
     
     @Test
+
     public void orcPerde10Vida()
     {
         Orc o;
@@ -35,4 +36,77 @@ public class OrcTest
         assertEquals(vidaAtual, o.getVida()+10);
     }
    
+    public void orcRecebeAtaqueUmaVez() {
+        // Arrange - Montagem dos dados de teste
+        Orc umOrc = new Orc();
+        // Act
+        umOrc.levarDano();
+        // Assert - Verificação
+        int esperado = 100;
+        int resultadoObtido = umOrc.getVida();
+        
+        assertEquals(esperado, resultadoObtido);
+    }
+    
+    @Test
+    public void orcRecebeAtaqueDuasVezes() {
+        // Arrange - Montagem dos dados de teste
+        Orc umOrc = new Orc();
+        // Act
+        umOrc.levarDano();
+        umOrc.levarDano();
+        // Assert - Verificação
+        int esperado = 90;
+        int resultadoObtido = umOrc.getVida();
+        
+        assertEquals(esperado, resultadoObtido);
+    }
+    
+    @Test
+    public void orcRecebeAtaqueCincoVezes() {
+        // Arrange - Montagem dos dados de teste
+        Orc umOrc = new Orc();
+        // Act
+        umOrc.levarDano();
+        umOrc.levarDano();
+        umOrc.levarDano();
+        umOrc.levarDano();
+        umOrc.levarDano();
+        // Assert - Verificação
+        int esperado = 60;
+        int resultadoObtido = umOrc.getVida();
+        
+        assertEquals(esperado, resultadoObtido);
+    }
+    
+    @Test
+    public void orcRecebeAtaqueDozeVezes() {
+        // Arrange - Montagem dos dados de teste
+        Orc umOrc = new Orc();
+        // Act
+        umOrc.levarDano();
+        umOrc.levarDano();
+        umOrc.levarDano();
+        umOrc.levarDano();
+        umOrc.levarDano();
+        umOrc.levarDano();
+        umOrc.levarDano();
+        umOrc.levarDano();
+        umOrc.levarDano();
+        umOrc.levarDano();
+        umOrc.levarDano();
+        umOrc.levarDano();
+        // Assert - Verificação
+        int esperado = -10;
+        int resultadoObtido = umOrc.getVida();
+        
+        assertEquals(esperado, resultadoObtido);
+    }
 }
+    
+    
+    
+
+
+
+

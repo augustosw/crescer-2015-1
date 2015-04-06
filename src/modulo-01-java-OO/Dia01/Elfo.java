@@ -30,6 +30,12 @@ public class Elfo
     }
     
     //Contrutor
+
+    /**
+     * Cria um elfo informando nome.
+     * 
+     * @param nome Nome a ser dado para o Elfo.
+     */
     public Elfo(String nome) {
         this.nome = nome;
     }
@@ -43,6 +49,10 @@ public class Elfo
     {
         return experiencia;
     }
+    public String getNome()
+    {
+        return nome;
+    }
     
     /**
      * Atira uma flecha e perde uma unidade.
@@ -51,19 +61,10 @@ public class Elfo
      */
     public void atirarFlecha(Orc umOrc) {
         //flechas = flechas - 1;
-
-        if(flechas>0)
-        {
-            flechas--;
-            experiencia++;
-            umOrc.levarDano();
-        }
-        else
-        {
-            System.out.println ("Você está sem Flechas!!!");
-        }
+        flechas--;
+        experiencia++;
+        umOrc.levarDano();
     }
-
     /*public void setFlechas(int novaQtdFlechas) {
         if (novaQtdFlechas > flechas) {
             flechas = novaQtdFlechas;
@@ -72,10 +73,5 @@ public class Elfo
     
     // camelCase: public void atirarFlechaDourada
     // PascalCase: public void AtirarFlechaDourada
-    
-    
-    
-    
-    
     
 }

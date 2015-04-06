@@ -7,9 +7,7 @@
 public class Orc
 {
     // instance variables - replace the example below with your own
-    private int vida;
-    private boolean vivo;
-    
+    private int vida;    
 
     /**
      * Constructor for objects of class Orcs
@@ -17,7 +15,6 @@ public class Orc
     public Orc()
     {
         vida = 110;
-        vivo = true;
     }
     
     public int getVida()
@@ -27,18 +24,6 @@ public class Orc
 
     public void levarDano()
     {
-        if(vivo == true)
-        {
-            vida = vida-10;
-            if(vida == 0)
-            {
-                vivo = false;
-                System.out.println ('\f'+"Este Orc morreu!!");
-            }
-        }
-        else 
-        {
-            System.out.println ('\f'+"Este Orc já está morto!!");
-        }        
+        vida -=10;
     }
 }
