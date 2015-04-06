@@ -29,8 +29,19 @@ public class Elfo
         this.flechas = flechas;
     }
     
+    //Contrutor
     public Elfo(String nome) {
         this.nome = nome;
+    }
+    
+    //GETs
+    public int getFlechas()
+    {
+        return flechas;
+    }
+    public int getExp()
+    {
+        return experiencia;
     }
     
     /**
@@ -55,7 +66,7 @@ public class Elfo
     public void atirarFlechaOrc(Orc o)
     {
         this.atirarFlecha();
-        o.receberFlechada();
+        o.levarDano();
     }
     
     

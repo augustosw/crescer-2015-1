@@ -26,7 +26,7 @@ public class Orc
         return vida;
     }
 
-    public void receberFlechada()
+    public void levarDano()
     {
         if(vivo == true)
         {
