@@ -1,10 +1,10 @@
 
 /**
- * Representa o status dos personagens do jogo.
+ * 
  * 
  * @author CWI Software
  */
 public enum Status
 {
-    VIVO, MORTO, FERIDO, ATACANDO, CACANDO, DORMINDO, FUGINDO
+    VIVO, MORTO, ATACANDO, FERIDO, FUGINDO, CAÇANDO, DORMINDO;
 }

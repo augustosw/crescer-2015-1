@@ -65,7 +65,7 @@ public class Elfo
         {
             flechas--;
             experiencia++;
-            umOrc.levarDano();
+            umOrc.recebeAtaque();
         }
     }
     
