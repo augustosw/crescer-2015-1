@@ -61,9 +61,12 @@ public class Elfo
      */
     public void atirarFlecha(Orc umOrc) {
         //flechas = flechas - 1;
-        flechas--;
-        experiencia++;
-        umOrc.levarDano();
+        if(flechas>0)
+        {
+            flechas--;
+            experiencia++;
+            umOrc.levarDano();
+        }
     }
     
     

@@ -91,7 +91,7 @@ public class ElfoTest
     public void elfoAtiraFlechaEmUmOrc() {
         // Arrange
         Elfo elfo = new Elfo("Legolas");
-        Orc orc = new Orc();
+        Orc orc = new Orc("Azog");
         // Act
         elfo.atirarFlecha(orc);
         // Assert
@@ -106,7 +106,7 @@ public class ElfoTest
     public void elfoAtiraFlechasDuasVezesNoMesmoOrc() {
         // Arrange
         Elfo elfo = new Elfo("Legolas");
-        Orc orc = new Orc();
+        Orc orc = new Orc("Azog");
         // Act
         elfo.atirarFlecha(orc);
         elfo.atirarFlecha(orc);
@@ -122,7 +122,7 @@ public class ElfoTest
     public void elfoAtiraFlechasCincoVezesNoMesmoOrc() {
         // Arrange
         Elfo elfo = new Elfo("Legolas", 4);
-        Orc orc = new Orc();
+        Orc orc = new Orc("Azog");
         // Act
         elfo.atirarFlecha(orc);
         elfo.atirarFlecha(orc);
@@ -130,8 +130,8 @@ public class ElfoTest
         elfo.atirarFlecha(orc);
         elfo.atirarFlecha(orc);
         // Assert
-        int experienciaEsperada = 5;
-        int flechasEsperadas = -1;
+        int experienciaEsperada = 4;
+        int flechasEsperadas = 0;
         
         assertEquals(experienciaEsperada, elfo.getExperiencia());
         assertEquals(flechasEsperadas, elfo.getFlechas());
@@ -141,9 +141,9 @@ public class ElfoTest
     public void elfoToStringRetornaStringCorretaAtirando1Flecha()
     {
         Elfo e = new Elfo("Legolas");
-        Orc o = new Orc();
+        Orc o = new Orc("Azog");
         e.atirarFlecha(o);
-        String esperado = "Legolas possui 41 flechas e 1 níveis de experiência.";
+        String esperado = "Legolas possui 41 flechas e 1 nível de experiência.";
         assertEquals(esperado, e.toString());
     }
     
@@ -171,7 +171,7 @@ public class ElfoTest
     public void elfoToStringRetornaStringCorretaAtirando5Flechas()
     {
         Elfo e = new Elfo("Legolas");
-        Orc o = new Orc();
+        Orc o = new Orc("Azog");
         e.atirarFlecha(o);
         e.atirarFlecha(o);
         e.atirarFlecha(o);
