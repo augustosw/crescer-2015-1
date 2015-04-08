@@ -174,10 +174,6 @@ public class Orc
         }
     }
     
-    public void setQuantidade(ItemDoInventario item, int qtde)
-    {
-        item.setQuantidade(qtde);
-    }
     public void setExp(int exp)
     {
         experiencia = exp;

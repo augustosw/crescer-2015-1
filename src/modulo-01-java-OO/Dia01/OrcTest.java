@@ -374,4 +374,27 @@ public class OrcTest
         }
         assertEquals(valor, 1001);
     }
+    
+    @Test
+    public void orcSemSorte()
+    {
+        Orc orc = new Orc("NomeGrande");
+        ItemDoInventario martelo = new ItemDoInventario("Martelo", 1);   
+        ItemDoInventario faca = new ItemDoInventario("Faca", 1);  
+        ItemDoInventario espada = new ItemDoInventario("Espada", 1);
+        orc.adicionarItem(martelo);
+        orc.adicionarItem(faca);
+        orc.adicionarItem(espada);
+        orc.tentarSorte();
+        int valor = 1;
+        for(int i =0; i < orc.getInventario().size(); i++)
+        {
+            int qtde = orc.getInventario().get(i).getQuantidade();
+            if(qtde != 1)
+            {
+                valor = qtde;
+            }
+        }
+        assertEquals(valor, 1);
+    }
 }
