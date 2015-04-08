@@ -134,9 +134,9 @@ public class Orc
         if (experienciaÉPar) {
             numeroGerado = numeroGerado * numeroGerado * numeroGerado;
         } else if (this.experiencia > 2) {
-            numeroGerado = numeroGerado * numeroGerado;
+            numeroGerado = Math.pow(numeroGerado, 2);
         }
-                
+  
         return numeroGerado;
     }
     
@@ -148,5 +148,38 @@ public class Orc
     public void perderItem(ItemDoInventario i)
     {
         inventario.remove(i);
+    }
+    
+    public String getDescricoesItens()
+    {
+        String texto="Itens: ";
+        for(int i = 0; i < inventario.size(); i++)
+        {
+            String complemento = i < inventario.size()-1 ? ", " : "";
+            texto = texto + inventario.get(i).getDescricao() +complemento;
+        }
+        System.out.println("\f"+texto);
+        return texto;
+    }
+    
+    public void tentarSorte()
+    {
+        if(this.gerarNumero()== 3481)
+        {
+            for(int i = 0; i < inventario.size(); i++)
+            {
+                int qtde = inventario.get(i).getQuantidade();
+                inventario.get(i).setQuantidade(qtde + 1000);
+            }
+        }
+    }
+    
+    public void setQuantidade(ItemDoInventario item, int qtde)
+    {
+        item.setQuantidade(qtde);
+    }
+    public void setExp(int exp)
+    {
+        experiencia = exp;
     }
 }

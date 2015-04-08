@@ -24,4 +24,10 @@ public class ItemDoInventario
    {
        return quantidade;
    }
+   
+   //SETs
+   public void setQuantidade(int qtde)
+   {
+       quantidade = qtde;
+   }
 }

@@ -323,4 +323,55 @@ public class OrcTest
         ItemDoInventario itemEncontrado = orc.getInventario().get(1);
         assertEquals(itemEsperado, itemEncontrado);
     }
+    
+    @Test
+    public void imprimeDescricoesDosItens()
+    {
+        Orc orc = new Orc("Urukhai");
+        ItemDoInventario martelo = new ItemDoInventario("Martelo", 1);   
+        ItemDoInventario faca = new ItemDoInventario("Faca", 1);  
+        ItemDoInventario espada = new ItemDoInventario("Espada", 1); 
+        orc.adicionarItem(martelo);
+        orc.adicionarItem(faca);
+        orc.adicionarItem(espada);
+        String textoEsperado = "Itens: Martelo, Faca, Espada";
+        String textoObtido = orc.getDescricoesItens();
+        assertEquals(textoEsperado, textoObtido);
+    }
+    
+    @Test
+    public void imprimeApenasUmItem()
+    {
+        Orc orc = new Orc("Urukhai");
+        ItemDoInventario martelo = new ItemDoInventario("Martelo", 1); 
+        orc.adicionarItem(martelo);
+        String textoEsperado = "Itens: Martelo";
+        String textoObtido = orc.getDescricoesItens();
+        assertEquals(textoEsperado, textoObtido);
+    }
+    
+    @Test
+    public void orcSortudo()
+    {
+        Orc orc = new Orc("Nome");
+        ItemDoInventario martelo = new ItemDoInventario("Martelo", 1);   
+        ItemDoInventario faca = new ItemDoInventario("Faca", 1);  
+        ItemDoInventario espada = new ItemDoInventario("Espada", 1);
+        orc.adicionarItem(martelo);
+        orc.adicionarItem(faca);
+        orc.adicionarItem(espada);
+        orc.setStatus(Status.DORMINDO);
+        orc.setExperiencia(3);
+        orc.tentarSorte();
+        int valor = 1001;
+        for(int i =0; i < orc.getInventario().size(); i++)
+        {
+            int qtde = orc.getInventario().get(i).getQuantidade();
+            if(qtde != 1001)
+            {
+                valor = qtde;
+            }
+        }
+        assertEquals(valor, 1001);
+    }
 }
