@@ -4,6 +4,7 @@ import static org.junit.Assert.*;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import java.util.ArrayList;
 
 /**
  * A classe de teste OrcTest.
@@ -189,7 +190,7 @@ public class OrcTest
     public void orcNasceComNomeInformado() {
         // Arrange - Montagem dos dados de teste
         Orc umOrc;
-        String esperado = "Urukhai";	
+        String esperado = "Urukhai";    
         // Act - Execução da ação de testes
         umOrc = new Orc(esperado);
         // Assert - Verificação
@@ -202,7 +203,7 @@ public class OrcTest
     public void orcNasceComNomeVazioInformado() {
         // Arrange - Montagem dos dados de teste
         Orc umOrc;
-        String esperado = "";	
+        String esperado = "";   
         // Act - Execução da ação de testes
         umOrc = new Orc(esperado);
         // Assert - Verificação
@@ -215,7 +216,7 @@ public class OrcTest
     public void orcNasceComNomeNuloInformado() {
         // Arrange - Montagem dos dados de teste
         Orc umOrc;
-        String esperado = null;	
+        String esperado = null; 
         // Act - Execução da ação de testes
         umOrc = new Orc(esperado);
         // Assert - Verificação
@@ -282,5 +283,44 @@ public class OrcTest
         
         assertEquals(vidaEsperada, orc.getVida());
         assertEquals(statusEsperado, orc.getStatus());
+    }
+    
+    @Test
+    public void orcTemItemPassadoParaInventario()
+    {
+        Orc orc = new Orc("Urukhai");
+        ItemDoInventario martelo = new ItemDoInventario("Martelo", 1);
+        orc.adicionarItem(martelo);
+        ItemDoInventario itemEsperado = orc.getInventario().get(0);
+        assertEquals(martelo, itemEsperado);
+    }
+    
+    @Test
+    public void orcPerdeItemInformado()
+    {
+        Orc orc = new Orc("Urukhai");
+        ItemDoInventario martelo = new ItemDoInventario("Martelo", 1);   
+        ItemDoInventario faca = new ItemDoInventario("Faca", 1);
+        orc.adicionarItem(martelo);
+        orc.adicionarItem(faca);
+        ItemDoInventario itemEsperado = faca;
+        orc.perderItem(martelo);
+        ItemDoInventario itemEncontrado = orc.getInventario().get(0);
+        assertEquals(itemEsperado, itemEncontrado);
+    }
+    
+    @Test
+    public void orcTemDoisItensIguaisEPerdeUm()
+    {
+        Orc orc = new Orc("Urukhai");
+        ItemDoInventario martelo = new ItemDoInventario("Martelo", 1);   
+        ItemDoInventario faca = new ItemDoInventario("Faca", 1);
+        orc.adicionarItem(martelo);
+        orc.adicionarItem(faca);
+        orc.adicionarItem(martelo);
+        ItemDoInventario itemEsperado = martelo;
+        orc.perderItem(martelo);
+        ItemDoInventario itemEncontrado = orc.getInventario().get(1);
+        assertEquals(itemEsperado, itemEncontrado);
     }
 }

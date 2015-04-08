@@ -4,6 +4,8 @@
  * @author (your name) 
  * @version (a version number or a date)
  */
+
+import java.util.ArrayList;
 public class Orc
 {
 
@@ -11,6 +13,7 @@ public class Orc
     private int experiencia, vida = 110;
     private String nome;
     private Status status = Status.VIVO;
+    private ArrayList<ItemDoInventario> inventario = new ArrayList<ItemDoInventario>();
 
     /**
      * Constructor for objects of class Orcs
@@ -64,20 +67,21 @@ public class Orc
     
     public String getNome() {
         return this.nome;
-    }
-    
+    }    
     public int getExperiencia() {
         return this.experiencia;
-    }
-    
+    }    
     public Status getStatus() {
         return this.status;
+    }
+    public ArrayList<ItemDoInventario> getInventario()
+    {
+        return inventario;
     }
     
     public void setStatus(Status novoStatus) {
         this.status = novoStatus;
-    }
-    
+    }    
     public void setExperiencia(int experiencia) {
         this.experiencia = experiencia;
     }
@@ -134,5 +138,15 @@ public class Orc
         }
                 
         return numeroGerado;
+    }
+    
+    public void adicionarItem(ItemDoInventario i)
+    {
+        inventario.add(i);
+    }
+    
+    public void perderItem(ItemDoInventario i)
+    {
+        inventario.remove(i);
     }
 }
