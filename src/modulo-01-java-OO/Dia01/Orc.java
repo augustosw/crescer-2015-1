@@ -178,4 +178,25 @@ public class Orc
     {
         experiencia = exp;
     }
+    
+    public ItemDoInventario getItemComMaiorQuantidade()
+    {
+        ItemDoInventario item;
+        ItemDoInventario itemNovo;
+        if(inventario.isEmpty() == false)
+        {
+            item = inventario.get(0);
+            for(int i = 1; i < inventario.size(); i++)
+            {
+                itemNovo = inventario.get(i);
+                if(itemNovo.getQuantidade() > item.getQuantidade())
+                {
+                    item = itemNovo;
+                }
+            }
+            System.out.println(item.getQuantidade());
+            return item;
+        }
+        return null;
+    }
 }

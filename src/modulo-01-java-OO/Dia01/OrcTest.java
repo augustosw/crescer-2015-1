@@ -397,4 +397,28 @@ public class OrcTest
         }
         assertEquals(valor, 1);
     }
+    
+    @Test
+    public void pegaItemComMaiorQuantidade()
+    {
+        Orc orc = new Orc("NomeGrande");
+        ItemDoInventario martelo = new ItemDoInventario("Martelo", 10);   
+        ItemDoInventario faca = new ItemDoInventario("Faca", 12);  
+        ItemDoInventario espada = new ItemDoInventario("Espada", 16);
+        orc.adicionarItem(martelo);
+        orc.adicionarItem(faca);
+        orc.adicionarItem(espada);
+        ItemDoInventario itemEsperado = espada;
+        ItemDoInventario itemEncontrado = orc.getItemComMaiorQuantidade();
+        assertEquals(itemEsperado, itemEncontrado);
+    }
+    
+    @Test 
+    public void inventarioDoOrcEstaVazioERetornaNulo()
+    {
+        Orc orc = new Orc("NomeGrande");
+        ItemDoInventario itemEsperado = null;
+        ItemDoInventario itemEncontrado = orc.getItemComMaiorQuantidade();
+        assertEquals(itemEsperado, itemEncontrado);
+    }
 }
