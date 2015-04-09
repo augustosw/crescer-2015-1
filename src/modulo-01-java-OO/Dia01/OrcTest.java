@@ -421,4 +421,28 @@ public class OrcTest
         ItemDoInventario itemEncontrado = orc.getItemComMaiorQuantidade();
         assertEquals(itemEsperado, itemEncontrado);
     }
+    
+    @Test
+    public void inventarioComApenasUmItem()
+    {
+        Orc orc = new Orc("NomeGrande");
+        ItemDoInventario martelo = new ItemDoInventario("Martelo", 10);   
+        orc.adicionarItem(martelo);
+        ItemDoInventario itemEsperado = martelo;
+        ItemDoInventario itemEncontrado = orc.getItemComMaiorQuantidade();
+        assertEquals(itemEsperado, itemEncontrado);
+    }
+    
+    @Test
+    public void inventarioComDoisItemComMesmaQuantidade()
+    {
+        Orc orc = new Orc("NomeGrande");
+        ItemDoInventario martelo = new ItemDoInventario("Martelo", 10);   
+        ItemDoInventario faca = new ItemDoInventario("Faca", 10);  
+        orc.adicionarItem(martelo);
+        orc.adicionarItem(faca);
+        ItemDoInventario itemEsperado = martelo;
+        ItemDoInventario itemEncontrado = orc.getItemComMaiorQuantidade();
+        assertEquals(itemEsperado, itemEncontrado);
+    }
 }

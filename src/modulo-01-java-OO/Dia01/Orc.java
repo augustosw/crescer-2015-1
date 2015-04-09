@@ -186,7 +186,7 @@ public class Orc
         if(inventario.isEmpty() == false)
         {
             item = inventario.get(0);
-            for(int i = 1; i < inventario.size(); i++)
+            for(int i = 0; i < inventario.size(); i++)
             {
                 itemNovo = inventario.get(i);
                 if(itemNovo.getQuantidade() > item.getQuantidade())
@@ -199,4 +199,6 @@ public class Orc
         }
         return null;
     }
+    
+    
 }
