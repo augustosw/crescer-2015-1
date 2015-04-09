@@ -445,4 +445,71 @@ public class OrcTest
         ItemDoInventario itemEncontrado = orc.getItemComMaiorQuantidade();
         assertEquals(itemEsperado, itemEncontrado);
     }
+    
+    @Test
+    public void ordenaInventarioComVariosItens()
+    {
+        Orc orc = new Orc();
+        ItemDoInventario martelo = new ItemDoInventario("Martelo", 10);   
+        ItemDoInventario faca = new ItemDoInventario("Faca", 12);  
+        ItemDoInventario espada = new ItemDoInventario("Espada", 16);
+        ItemDoInventario outro = new ItemDoInventario("Outro", 9);
+        orc.adicionarItem(martelo);
+        orc.adicionarItem(faca);
+        orc.adicionarItem(espada);
+        orc.adicionarItem(outro);
+        ArrayList<ItemDoInventario> inventarioEsperado = new ArrayList<>();
+        inventarioEsperado.add(outro);
+        inventarioEsperado.add(martelo);
+        inventarioEsperado.add(faca);
+        inventarioEsperado.add(espada);
+        orc.ordenarItens();
+        ArrayList<ItemDoInventario> inventarioEncontrado = orc.getInventario();
+        assertEquals(inventarioEsperado, inventarioEncontrado);
+    }
+    
+    @Test
+    public void ordenaComUmItemNoInventario()
+    {
+        Orc orc = new Orc();
+        ItemDoInventario martelo = new ItemDoInventario("Martelo", 10);   
+        orc.adicionarItem(martelo);
+        ArrayList<ItemDoInventario> inventarioEsperado = new ArrayList<>();
+        inventarioEsperado.add(martelo);
+        orc.ordenarItens();
+        ArrayList<ItemDoInventario> inventarioEncontrado = orc.getInventario();
+        assertEquals(inventarioEsperado, inventarioEncontrado);
+    }
+    
+    @Test
+    public void ordenaComItemComQuantidadeNegativa()
+    {
+        Orc orc = new Orc();
+        ItemDoInventario martelo = new ItemDoInventario("Martelo", 10);   
+        ItemDoInventario faca = new ItemDoInventario("Faca", -12);  
+        ItemDoInventario espada = new ItemDoInventario("Espada", 16);
+        ItemDoInventario outro = new ItemDoInventario("Outro", 9);
+        orc.adicionarItem(martelo);
+        orc.adicionarItem(faca);
+        orc.adicionarItem(espada);
+        orc.adicionarItem(outro);
+        ArrayList<ItemDoInventario> inventarioEsperado = new ArrayList<>();
+        inventarioEsperado.add(faca);
+        inventarioEsperado.add(outro);
+        inventarioEsperado.add(martelo);
+        inventarioEsperado.add(espada);
+        orc.ordenarItens();
+        ArrayList<ItemDoInventario> inventarioEncontrado = orc.getInventario();
+        assertEquals(inventarioEsperado, inventarioEncontrado);
+    }
+    
+    @Test
+    public void ordenaSemItensNoInventario()
+    {
+        Orc orc = new Orc();
+        ArrayList<ItemDoInventario> inventarioEsperado = new ArrayList<>();
+        orc.ordenarItens();
+        ArrayList<ItemDoInventario> inventarioEncontrado = orc.getInventario();
+        assertEquals(inventarioEsperado, inventarioEncontrado);
+    }
 }

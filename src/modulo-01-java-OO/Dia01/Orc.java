@@ -200,5 +200,31 @@ public class Orc
         return null;
     }
     
-    
+    public void ordenarItens()
+    {
+        if(inventario.isEmpty() == false)
+        {
+            ArrayList<ItemDoInventario> backup= new ArrayList<>();
+            int tamanho = inventario.size();
+            for(int i = 0; i < tamanho; i++)
+            {
+                ItemDoInventario itemMenor = inventario.get(0);
+                for(int f = 0; f < inventario.size(); f++)
+                {
+                    ItemDoInventario itemAtual = inventario.get(f);
+                    if(itemAtual.getQuantidade() < itemMenor.getQuantidade())
+                    {
+                        itemMenor = itemAtual;
+                    }
+                }
+                backup.add(itemMenor);
+                inventario.remove(itemMenor);
+            }
+            inventario = backup;
+        }
+        else
+        {
+            System.out.println("O Inventario está vazio!!");
+        }
+    }
 }
