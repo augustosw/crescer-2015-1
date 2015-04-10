@@ -1,5 +1,4 @@
 
-
 import static org.junit.Assert.*;
 import org.junit.After;
 import org.junit.Before;
@@ -33,6 +32,19 @@ public class ItemDoInventarioTest
         int quantidadeEsperada = -12;
         
         assertEquals(descricaoEsperada, item.getDescricao());
-        assertEquals(quantidadeEsperada, item.getQuantidade());        
+        assertEquals(quantidadeEsperada, item.getQuantidade());  
+    }
+    
+    @Test
+    public void criarItemComQuantidadeNegativaDescricaoNula() {
+        // Arrange
+        int quantidadeEsperada = -3456;
+        String descricaoEsperada = null;
+        // Act
+        ItemDoInventario item = new ItemDoInventario(descricaoEsperada, quantidadeEsperada);
+        // Assert
+        assertEquals(quantidadeEsperada, item.getQuantidade());
+        assertEquals(descricaoEsperada, item.getDescricao());
+
     }
 }

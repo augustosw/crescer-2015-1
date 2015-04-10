@@ -1,3 +1,5 @@
+import java.util.*;
+
 /**
  * Write a description of class Orcs here.
  * 
@@ -6,33 +8,20 @@
  */
 
 import java.util.ArrayList;
-public class Orc
+public class Orc extends Personagem
 {
 
-    // instance variables - replace the example below with your own
-    private int experiencia, vida = 110;
-    private String nome;
-    private Status status = Status.VIVO;
-    private ArrayList<ItemDoInventario> inventario = new ArrayList<ItemDoInventario>();
-
+  
     /**
      * Constructor for objects of class Orcs
      */
-    public Orc()
-    {
-    }
-    
-    public int getVida()
-    {
-        return vida;
-    }
-    /**
-     * Construtor para objetos da classe Orc
-     */ 
     public Orc(String nome)
     {
-        //vida = 110;
-        this.nome = nome;
+        super(nome, 110);
+    }
+    public Orc()
+    {
+        this("");
     }
         
     /**
@@ -65,26 +54,10 @@ public class Orc
 
     }
     
-    public String getNome() {
-        return this.nome;
-    }    
-    public int getExperiencia() {
-        return this.experiencia;
-    }    
-    public Status getStatus() {
-        return this.status;
-    }
-    public ArrayList<ItemDoInventario> getInventario()
-    {
-        return inventario;
-    }
-    
     public void setStatus(Status novoStatus) {
         this.status = novoStatus;
     }    
-    public void setExperiencia(int experiencia) {
-        this.experiencia = experiencia;
-    }
+    
     
     /**
      * Imprime a vida atual do Orc
@@ -97,6 +70,7 @@ public class Orc
     {
         return "Vida atual: " +this.vida;
     }
+    
     
     private double gerarNumero() {
         
@@ -140,27 +114,7 @@ public class Orc
         return numeroGerado;
     }
     
-    public void adicionarItem(ItemDoInventario i)
-    {
-        inventario.add(i);
-    }
-    
-    public void perderItem(ItemDoInventario i)
-    {
-        inventario.remove(i);
-    }
-    
-    public String getDescricoesItens()
-    {
-        String texto="Itens: ";
-        for(int i = 0; i < inventario.size(); i++)
-        {
-            String complemento = i < inventario.size()-1 ? ", " : "";
-            texto = texto + inventario.get(i).getDescricao() +complemento;
-        }
-        System.out.println("\f"+texto);
-        return texto;
-    }
+   
     
     public void tentarSorte()
     {
@@ -178,53 +132,5 @@ public class Orc
     {
         experiencia = exp;
     }
-    
-    public ItemDoInventario getItemComMaiorQuantidade()
-    {
-        ItemDoInventario item;
-        ItemDoInventario itemNovo;
-        if(inventario.isEmpty() == false)
-        {
-            item = inventario.get(0);
-            for(int i = 0; i < inventario.size(); i++)
-            {
-                itemNovo = inventario.get(i);
-                if(itemNovo.getQuantidade() > item.getQuantidade())
-                {
-                    item = itemNovo;
-                }
-            }
-            System.out.println(item.getQuantidade());
-            return item;
-        }
-        return null;
-    }
-    
-    public void ordenarItens()
-    {
-        if(inventario.isEmpty() == false)
-        {
-            ArrayList<ItemDoInventario> backup= new ArrayList<>();
-            int tamanho = inventario.size();
-            for(int i = 0; i < tamanho; i++)
-            {
-                ItemDoInventario itemMenor = inventario.get(0);
-                for(int f = 0; f < inventario.size(); f++)
-                {
-                    ItemDoInventario itemAtual = inventario.get(f);
-                    if(itemAtual.getQuantidade() < itemMenor.getQuantidade())
-                    {
-                        itemMenor = itemAtual;
-                    }
-                }
-                backup.add(itemMenor);
-                inventario.remove(itemMenor);
-            }
-            inventario = backup;
-        }
-        else
-        {
-            System.out.println("O Inventario está vazio!!");
-        }
-    }
+
 }

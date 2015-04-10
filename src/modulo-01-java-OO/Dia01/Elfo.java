@@ -4,12 +4,12 @@
  * 
  * @author CWI Software
  */
-public class Elfo
+public class Elfo extends Personagem
 {
     // Versão correção do tema!!
     
-    private String nome;
-    private int flechas, experiencia;
+
+    private int flechas;
 
     // type initializer
     {
@@ -22,12 +22,6 @@ public class Elfo
      * @param umNome Nome que o elfo receberá
      * @param flechas Quantidade inicial de flechas
      */
-    public Elfo(String umNome, int flechas)
-    {
-        this(umNome);
-        // this.nome = nome;
-        this.flechas = flechas;
-    }
     
     //Contrutor
 
@@ -37,7 +31,12 @@ public class Elfo
      * @param nome Nome a ser dado para o Elfo.
      */
     public Elfo(String nome) {
-        this.nome = nome;
+        super(nome, 0);
+    }
+    public Elfo(String nome, int flechas)
+    {
+        super(nome, 0);
+        this.flechas = flechas;
     }
     
     //GETs
@@ -45,14 +44,7 @@ public class Elfo
     {
         return flechas;
     }
-     public int getExperiencia() 
-    {
-        return this.experiencia;
-    }
-    public String getNome()
-    {
-        return nome;
-    }
+
     
     /**
      * Atira uma flecha e perde uma unidade.

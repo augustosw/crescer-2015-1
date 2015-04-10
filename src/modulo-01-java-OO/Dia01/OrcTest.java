@@ -1,10 +1,9 @@
-
-
 import static org.junit.Assert.*;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import java.util.ArrayList;
+import java.util.*;
+
 
 /**
  * A classe de teste OrcTest.
@@ -263,7 +262,7 @@ public class OrcTest
     @Test
     public void orcRecebeAtaqueComNumeroGeradoEntre0e100() {
         Orc orc = new Orc("Urukhai"); // para somar 65 ao número gerado
-        orc.setExperiencia(1); // ímpar e menor que 2 para poder manter entre 0 e 100
+        orc.setExp(1); // ímpar e menor que 2 para poder manter entre 0 e 100
         orc.recebeAtaque();
         
         int vidaEsperada = 110;
@@ -361,7 +360,7 @@ public class OrcTest
         orc.adicionarItem(faca);
         orc.adicionarItem(espada);
         orc.setStatus(Status.DORMINDO);
-        orc.setExperiencia(3);
+        orc.setExp(3);
         orc.tentarSorte();
         int valor = 1001;
         for(int i =0; i < orc.getInventario().size(); i++)
@@ -513,3 +512,4 @@ public class OrcTest
         assertEquals(inventarioEsperado, inventarioEncontrado);
     }
 }
+

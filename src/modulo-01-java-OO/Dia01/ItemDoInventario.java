@@ -30,4 +30,5 @@ public class ItemDoInventario
    {
        quantidade = qtde;
    }
+
 }
