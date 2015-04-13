@@ -45,7 +45,7 @@ public class Personagem
      * 
      * Algoritmo atual: Bubblesort
      */
-   public void ordenarItensVariaveis() {
+   protected void ordenarItensVariaveis() {
         
         /*for (int i = 0; i < this.itens.size(); i++) {
             for (int j = 0; j < this.itens.size() - 1; j++) {
@@ -77,7 +77,7 @@ public class Personagem
         
    }
    
-   public String getDescricoesItens()
+   protected String getDescricoesItens()
     {
         String texto="Itens: ";
         for(int i = 0; i < inventario.size(); i++)
@@ -89,7 +89,7 @@ public class Personagem
         return texto;
     }
     
-   public ItemDoInventario getItemComMaiorQuantidade()
+   protected ItemDoInventario getItemComMaiorQuantidade()
     {
         ItemDoInventario item;
         ItemDoInventario itemNovo;
@@ -110,7 +110,7 @@ public class Personagem
         return null;
     }
     
-   public void ordenarItens()
+   protected void ordenarItens()
     {
         if(inventario.isEmpty() == false)
         {
@@ -137,12 +137,12 @@ public class Personagem
             System.out.println("O Inventario está vazio!!");
         }
     }
-   public void adicionarItem(ItemDoInventario i)
+   protected void adicionarItem(ItemDoInventario i)
    {
        inventario.add(i);
    }
     
-   public void perderItem(ItemDoInventario i)
+   protected void perderItem(ItemDoInventario i)
    {
        inventario.remove(i);
    }  

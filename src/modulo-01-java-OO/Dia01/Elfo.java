@@ -30,10 +30,10 @@ public class Elfo extends Personagem
      * 
      * @param nome Nome a ser dado para o Elfo.
      */
-    public Elfo(String nome) {
+    protected Elfo(String nome) {
         super(nome, 0);
     }
-    public Elfo(String nome, int flechas)
+    protected Elfo(String nome, int flechas)
     {
         super(nome, 0);
         this.flechas = flechas;
@@ -51,7 +51,7 @@ public class Elfo extends Personagem
      * 
      * @param umOrc Orc que receberá uma flechada.
      */
-    public void atirarFlecha(Orc umOrc) {
+    protected void atirarFlecha(Orc umOrc) {
         //flechas = flechas - 1;
         if(flechas>0)
         {

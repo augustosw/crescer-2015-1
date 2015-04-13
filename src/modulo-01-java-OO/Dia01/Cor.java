@@ -7,5 +7,5 @@
  */
 public enum Cor
 {
-    VERMELHO, AZUL, VERDE
+    VERMELHO, AZUL, VERDE, AMARELO, ROXO, LILAZ, PRETO, BRANCO;
 }
