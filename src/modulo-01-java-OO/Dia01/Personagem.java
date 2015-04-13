@@ -9,11 +9,11 @@ import java.util.*;
 public class Personagem
 {
    protected String nome;
-   protected int vida, experiencia;
+   protected int experiencia, vida;
    protected Status status = Status.VIVO;
    protected ArrayList<ItemDoInventario> inventario = new ArrayList<>();
 
-   protected Personagem(String nome, int vida)
+   protected Personagem(String nome)
    {
        this.nome = nome;
        this.vida = vida;

@@ -26,7 +26,7 @@ public class ElfoComCorTest
     public void elfoComCorNasceSemCorInformada()
     {
         ElfoComCor elfo = new ElfoComCor("Um nome Whatever");
-        Cor corEsperada = Cor.BRANCO;
+        Cor corEsperada = Cor.VERDE;
         Cor corEncontrada = elfo.getCor();
         assertEquals(corEsperada, corEncontrada);
     }

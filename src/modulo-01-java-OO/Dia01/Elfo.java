@@ -14,6 +14,7 @@ public class Elfo extends Personagem
     // type initializer
     {
         flechas = 42;
+        vida = 100;
     }
     
     /**
@@ -31,11 +32,11 @@ public class Elfo extends Personagem
      * @param nome Nome a ser dado para o Elfo.
      */
     protected Elfo(String nome) {
-        super(nome, 0);
+        super(nome);
     }
     protected Elfo(String nome, int flechas)
     {
-        super(nome, 0);
+        super(nome);
         this.flechas = flechas;
     }
     

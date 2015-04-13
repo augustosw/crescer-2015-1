@@ -10,14 +10,17 @@ import java.util.*;
 import java.util.ArrayList;
 public class Orc extends Personagem
 {
-
+    
+    {
+        vida = 110;
+    }
   
     /**
      * Constructor for objects of class Orcs
      */
     public Orc(String nome)
     {
-        super(nome, 110);
+        super(nome);
     }
     public Orc()
     {

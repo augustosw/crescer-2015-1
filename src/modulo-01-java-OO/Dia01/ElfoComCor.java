@@ -10,7 +10,7 @@ public class ElfoComCor extends Elfo
     Cor cor;
     
     {
-        cor = Cor.BRANCO;
+        cor = Cor.VERDE;
     }
     
     //Contrutores
