@@ -18,8 +18,37 @@ public class ElfoNoturno extends Elfo
    
    protected void atirarFlecha(Orc umOrc)
    {
-        vida = (int)(vida -= vida*0.05);
-        experiencia+=2;
-        super.atirarFlecha(umOrc);
+        if(status != Status.MORTO)
+        {
+            vida = (int)(vida -= vida*0.05);
+            experiencia+=2;
+            super.atirarFlecha(umOrc);
+            if(vida == 0)
+            {
+                status = Status.MORTO;
+            }
+        }
+   }
+   
+   protected void atirarVariasFlechas(Orc umOrc, int vezes)
+   {
+       if(vezes>0)
+       {
+           for(int i = 1; i <= vezes; i++)
+           {
+               this.atirarFlecha(umOrc);
+           }
+       }
+   }
+   
+   protected void morre(Orc umOrc)
+   {
+       int contador = 0;
+       while(status != Status.MORTO)
+       {
+           this.atirarFlecha(umOrc);
+           contador++;
+       }
+       System.out.println(contador);
    }
 }

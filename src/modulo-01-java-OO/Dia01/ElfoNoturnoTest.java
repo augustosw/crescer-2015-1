@@ -50,4 +50,26 @@ public class ElfoNoturnoTest
         int vidaEncontrada = elfo.getVida();
         assertEquals(vidaEsperada, vidaEncontrada);
     }
+    
+    @Test
+    public void elfoNoturnoMorreApos45Flechas()
+    {
+        ElfoNoturno elfo = new ElfoNoturno("Um elfo qualquer");
+        Orc umOrc = new Orc();
+        elfo.atirarVariasFlechas(umOrc, 45);
+        Status statusEsperado = Status.MORTO;
+        Status statusEncontrado = elfo.getStatus();
+        assertEquals(statusEsperado, statusEncontrado);
+    }
+    
+    @Test
+    public void elfoNaoAtiraSeEstiverMorto()
+    {
+        ElfoNoturno elfo = new ElfoNoturno("Um elfo qualquer", 100);
+        Orc umOrc = new Orc();
+        elfo.atirarVariasFlechas(umOrc, 45);
+        int flechasEsperadas = 55;
+        int flechasEncontradas = elfo.getFlechas();
+        assertEquals(flechasEsperadas, flechasEncontradas);
+    }
 }
