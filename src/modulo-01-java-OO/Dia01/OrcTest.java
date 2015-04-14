@@ -13,6 +13,7 @@ import java.util.*;
  */
 public class OrcTest
 {
+    private static final double DELTA = 0.005;
     //Testes Classe Orc
     @Test
     public void orcNascecom110Vida()
@@ -22,7 +23,7 @@ public class OrcTest
         //Act - Execução da ação de testes
         o = new Orc();
         //Assert - Verificação se o resultado é o esperado
-        assertEquals(110, o.getVida());
+        assertEquals(110.0, o.getVida(), DELTA);
     }
     
     @Test
@@ -30,9 +31,9 @@ public class OrcTest
     {
         Orc o;
         o = new Orc("Nome Grandee");
-        int vidaAtual = o.getVida();
+        double vidaEsperada = 100.0;
         o.recebeAtaque();
-        assertEquals(vidaAtual, o.getVida()+10);
+        assertEquals(vidaEsperada, o.getVida(), DELTA);
     }
    
     @Test
@@ -55,10 +56,10 @@ public class OrcTest
         // Act
         umOrc.recebeAtaque();
         // Assert - Verificação
-        int esperado = 100;
-        int resultadoObtido = umOrc.getVida();
+        double esperado = 100;
+        double resultadoObtido = umOrc.getVida();
         
-        assertEquals(esperado, resultadoObtido);
+        assertEquals(esperado, resultadoObtido, DELTA);
     }
     
     @Test
@@ -69,10 +70,10 @@ public class OrcTest
         umOrc.recebeAtaque();
         umOrc.recebeAtaque();
         // Assert - Verificação
-        int esperado = 90;
-        int resultadoObtido = umOrc.getVida();
+        double esperado = 90;
+        double resultadoObtido = umOrc.getVida();
         
-        assertEquals(esperado, resultadoObtido);
+        assertEquals(esperado, resultadoObtido, DELTA);
     }
     
     @Test
@@ -86,10 +87,10 @@ public class OrcTest
         umOrc.recebeAtaque();
         umOrc.recebeAtaque();
         // Assert - Verificação
-        int esperado = 60;
-        int resultadoObtido = umOrc.getVida();
+        double esperado = 60;
+        double resultadoObtido = umOrc.getVida();
         
-        assertEquals(esperado, resultadoObtido);
+        assertEquals(esperado, resultadoObtido, DELTA);
     }
     
     @Test
@@ -123,10 +124,10 @@ public class OrcTest
         umOrc.recebeAtaque();
         umOrc.recebeAtaque();
         // Assert - Verificação
-        int esperado = 0;
-        int resultadoObtido = umOrc.getVida();
+        double esperado = 0;
+        double resultadoObtido = umOrc.getVida();
         
-        assertEquals(esperado, resultadoObtido);
+        assertEquals(esperado, resultadoObtido, DELTA);
     }
     
     @Test
@@ -135,7 +136,7 @@ public class OrcTest
     {
         Orc o = new Orc();
         String resultadoObtido = o.toString();
-        String esperado = "Vida atual: 110";
+        String esperado = "Vida atual: 110.0";
         assertEquals(esperado,resultadoObtido);
     }
     
@@ -146,7 +147,7 @@ public class OrcTest
         // Act
         String resultadoObtido = orc.toString();
         // Assert
-        String esperado = "Vida atual: 110";
+        String esperado = "Vida atual: 110.0";
         assertEquals(esperado, resultadoObtido);
     }
     
@@ -158,7 +159,7 @@ public class OrcTest
         orc.recebeAtaque();
         String resultadoObtido = orc.toString();
         // Assert
-        String esperado = "Vida atual: 100";
+        String esperado = "Vida atual: 100.0";
         assertEquals(esperado, resultadoObtido);
     }
     
@@ -181,7 +182,7 @@ public class OrcTest
         umOrc.recebeAtaque();
         String resultadoObtido = umOrc.toString();
         // Assert
-        String esperado = "Vida atual: 0";
+        String esperado = "Vida atual: 0.0";
         assertEquals(esperado, resultadoObtido);
     }   
     
@@ -252,10 +253,10 @@ public class OrcTest
         Orc orc = new Orc("Tom");
         orc.recebeAtaque();
         
-        int vidaEsperada = 110;
+        double vidaEsperada = 110.0;
         int experienciaEsperada = 2;
         
-        assertEquals(vidaEsperada, orc.getVida());
+        assertEquals(vidaEsperada, orc.getVida(), DELTA);
         assertEquals(experienciaEsperada, orc.getExperiencia());
     }
     
@@ -265,10 +266,10 @@ public class OrcTest
         orc.setExp(1); // ímpar e menor que 2 para poder manter entre 0 e 100
         orc.recebeAtaque();
         
-        int vidaEsperada = 110;
+        double vidaEsperada = 110.0;
         int experienciaEsperada = 1;
         
-        assertEquals(vidaEsperada, orc.getVida());
+        assertEquals(vidaEsperada, orc.getVida(), DELTA);
         assertEquals(experienciaEsperada, orc.getExperiencia());
     }
     
@@ -277,10 +278,10 @@ public class OrcTest
         Orc orc = new Orc("Urukhai"); // para somar 65 ao número gerado e elevar ao cubo e não estar nos casos acima.
         orc.recebeAtaque();
         
-        int vidaEsperada = 100;
+        double vidaEsperada = 100.0;
         Status statusEsperado = Status.FERIDO;
         
-        assertEquals(vidaEsperada, orc.getVida());
+        assertEquals(vidaEsperada, orc.getVida(), DELTA);
         assertEquals(statusEsperado, orc.getStatus());
     }
     

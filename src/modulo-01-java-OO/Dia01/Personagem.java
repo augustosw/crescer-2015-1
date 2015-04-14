@@ -9,7 +9,8 @@ import java.util.*;
 public class Personagem
 {
    protected String nome;
-   protected int experiencia, vida;
+   protected double vida;
+   protected int experiencia;
    protected Status status = Status.VIVO;
    protected ArrayList<ItemDoInventario> inventario = new ArrayList<>();
 
@@ -23,7 +24,7 @@ public class Personagem
    {
        return status;
    }
-   protected int getVida()
+   protected double getVida()
    {
        return vida;
    }

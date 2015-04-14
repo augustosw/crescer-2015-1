@@ -42,7 +42,7 @@ public class Orc extends Personagem
             return;
         } else {
                     
-            int danoVida = 10;
+            double danoVida = 10.0;
             
             if (this.vida >= danoVida) {
                 this.vida -= danoVida;
