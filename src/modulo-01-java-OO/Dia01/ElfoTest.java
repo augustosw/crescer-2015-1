@@ -180,5 +180,30 @@ public class ElfoTest
         String esperado = "Legolas possui 37 flechas e 5 níveis de experiência.";
         assertEquals(esperado, e.toString());
     }
+    
+    @Test
+    public void testaQuantidadeDeElfosCriados()
+    {
+        Elfo.resetContador();
+        Elfo normal = new Elfo("Nome");
+        ElfoNoturno noturno = new ElfoNoturno("Outro Nome");
+        ElfoComCor cor = new ElfoComCor("Não Importa o Nome");
+        int qtdeEsperada = 3;
+        int qtdeEncontrada = Elfo.getElfosCriados();
+        assertEquals(qtdeEsperada, qtdeEncontrada);
+    }
+    
+    @Test
+    public void testaResetDeContadorDeElfos()
+    {
+        Elfo.resetContador();
+        Elfo normal = new Elfo("Nome");
+        ElfoNoturno noturno = new ElfoNoturno("Outro Nome");
+        ElfoComCor cor = new ElfoComCor("Não Importa o Nome");
+        Elfo.resetContador();
+        int qtdeEsperada = 0;
+        int qtdeEncontrada = Elfo.getElfosCriados();
+        assertEquals(qtdeEsperada, qtdeEncontrada);        
+    }
 }
 

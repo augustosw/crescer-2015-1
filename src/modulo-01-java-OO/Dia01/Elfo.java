@@ -10,12 +10,13 @@ public class Elfo extends Personagem
     
 
     private int flechas;
+    private static int elfosCriados;
 
     // type initializer
     {
         flechas = 42;
         vida = 100;
-        Contador.contaElfo();
+        Elfo.contaElfo();
     }
     
     /**
@@ -122,4 +123,20 @@ public class Elfo extends Personagem
     }
     // camelCase: public void atirarFlechaDourada
     // PascalCase: public void AtirarFlechaDourada
+    
+    
+   private static void contaElfo()
+   {
+       elfosCriados++;
+   }
+   
+   public static int getElfosCriados()
+   {
+       return elfosCriados;
+   }
+   
+   public static void resetContador()
+   {
+       elfosCriados = 0;
+   }
 }
