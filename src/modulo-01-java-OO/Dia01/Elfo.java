@@ -15,6 +15,7 @@ public class Elfo extends Personagem
     {
         flechas = 42;
         vida = 100;
+        Contador.contaElfo();
     }
     
     /**
