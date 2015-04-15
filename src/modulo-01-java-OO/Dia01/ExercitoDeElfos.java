@@ -28,4 +28,19 @@ public class ExercitoDeElfos
    {
        return exercito.size();
    }
+   
+   public HashMap<String, Elfo> listaElfosPorStatus(Status status)
+   {
+       HashMap<String, Elfo> listaStatus = new HashMap<>();
+       for(Map.Entry<String, Elfo> entry : exercito.entrySet())
+       {
+           Elfo elfoAtual = entry.getValue();
+           if(elfoAtual.getStatus() == status)
+           {
+               String nome =  elfoAtual.getNome();
+               listaStatus.put(nome, elfoAtual);
+           }
+       }
+       return listaStatus;
+   }
 }
