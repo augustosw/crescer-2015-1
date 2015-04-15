@@ -9,14 +9,19 @@ public class ExercitoDeElfos
 {
    private HashMap<String, Elfo> exercito = new HashMap<>();
    private HashMap<Status, ArrayList<Elfo>> porStatus = new HashMap<>();
+   private EstrategiaDeAtaque estrategia = new EstrategiaNormal();
    
-   public void alistaElfo(Elfo elfo)
+   public void alistaElfo(Elfo elfo) throws NaoPodeAlistarException
    {
        boolean elfoValido = elfo instanceof ElfoComCor || elfo instanceof ElfoNoturno;
        if(elfoValido)
        {
            String nome = elfo.getNome();
            exercito.put(nome, elfo);
+       }
+       else
+       {
+           ErrosDoJogo.naoPodeAlistar();
        }
    }
    
