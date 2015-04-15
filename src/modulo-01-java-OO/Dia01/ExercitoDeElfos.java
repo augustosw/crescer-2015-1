@@ -36,6 +36,10 @@ public class ExercitoDeElfos
        return porStatus.get(status);
    }
    
+   public HashMap<String, Elfo> getExercito()
+   {
+       return exercito;
+   }
    public HashMap<Status, ArrayList<Elfo>> getExercitoPorStatus()
    {
        return porStatus;
