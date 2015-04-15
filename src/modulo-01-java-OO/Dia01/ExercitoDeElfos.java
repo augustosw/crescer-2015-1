@@ -8,6 +8,7 @@ import java.util.*;
 public class ExercitoDeElfos
 {
    private HashMap<String, Elfo> exercito = new HashMap<>();
+   private HashMap<Status, ArrayList<Elfo>> porStatus = new HashMap<>();
    
    public void alistaElfo(Elfo elfo)
    {
@@ -22,6 +23,17 @@ public class ExercitoDeElfos
    public Elfo buscar(String nome)
    {
        return exercito.get(nome);
+   }
+   
+   public ArrayList<Elfo> buscar(Status status) 
+   {
+       agruparPorStatus();
+       return porStatus.get(status);
+   }
+   
+   public HashMap<Status, ArrayList<Elfo>> getExercitoPorStatus()
+   {
+       return porStatus;
    }
    
    public int getQuantidadeAlistados()
@@ -42,5 +54,25 @@ public class ExercitoDeElfos
            }
        }
        return listaStatus;
+   }
+   
+   public void agruparPorStatus()
+   {
+       porStatus.clear();
+       
+       for(Map.Entry<String, Elfo> entry : exercito.entrySet())
+       {
+           Elfo elfo = entry.getValue();
+           Status status = elfo.getStatus();
+           
+           if(porStatus.containsKey(status))
+           {
+               porStatus.get(status).add(elfo);
+           }
+           else
+           {
+               porStatus.put(status, new ArrayList<>(Arrays.asList(elfo)));
+           }
+       }
    }
 }

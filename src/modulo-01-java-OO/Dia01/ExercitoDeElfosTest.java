@@ -97,4 +97,60 @@ public class ExercitoDeElfosTest
        int qtdeEncontrada = listaElfos.size();
        assertEquals(qtdeEsperada, qtdeEncontrada);
     }
+    
+    @Test
+    public void agruparVariosElfosPorStatus() {
+        // Arrange
+        ElfoComCor elfoVivo1 = new ElfoComCor("Green 1");
+        ElfoNoturno elfoVivo2 = new ElfoNoturno("Aa");
+        ElfoComCor elfoVivo3 = new ElfoComCor("BB");
+        ElfoComCor elfoAtacando1 = new ElfoComCor("Green 2");
+        ElfoComCor elfoAtacando2 = new ElfoComCor("Green 3");
+        elfoAtacando1.atirarFlecha(new Orc());
+        elfoAtacando2.atirarFlecha(new Orc());
+        HashMap<Status, ArrayList<Elfo>> esperado = new HashMap<>();
+        esperado.put(Status.ATACANDO, new ArrayList<>(
+            Arrays.asList(elfoAtacando1, elfoAtacando2)
+        ));
+        esperado.put(Status.VIVO, new ArrayList<>(
+            Arrays.asList(elfoVivo2, elfoVivo3, elfoVivo1)
+        ));
+        ExercitoDeElfos exercito = new ExercitoDeElfos();
+        exercito.alistaElfo(elfoAtacando1);
+        exercito.alistaElfo(elfoAtacando2);
+        exercito.alistaElfo(elfoVivo1);
+        exercito.alistaElfo(elfoVivo2);
+        exercito.alistaElfo(elfoVivo3);
+        // Act
+        exercito.agruparPorStatus();
+        HashMap<Status, ArrayList<Elfo>> resultado = exercito.getExercitoPorStatus();
+        // Assert
+        assertEquals(esperado, resultado);
+    }
+    
+    @Test
+    public void buscarPorStatusAtacandoComVariosElfos() 
+    {
+        // Arrange
+        ElfoComCor elfoVivo1 = new ElfoComCor("Green 1");
+        ElfoNoturno elfoVivo2 = new ElfoNoturno("Aa");
+        ElfoComCor elfoVivo3 = new ElfoComCor("BB");
+        ElfoComCor elfoAtacando1 = new ElfoComCor("Green 2");
+        ElfoComCor elfoAtacando2 = new ElfoComCor("Green 3");
+        elfoAtacando1.atirarFlecha(new Orc());
+        elfoAtacando2.atirarFlecha(new Orc());
+        ArrayList<Elfo> esperado = new ArrayList<>(
+            Arrays.asList(elfoAtacando1, elfoAtacando2)
+        );
+        ExercitoDeElfos exercito = new ExercitoDeElfos();
+        exercito.alistaElfo(elfoAtacando1);
+        exercito.alistaElfo(elfoAtacando2);
+        exercito.alistaElfo(elfoVivo1);
+        exercito.alistaElfo(elfoVivo2);
+        exercito.alistaElfo(elfoVivo3);
+        // Act
+        ArrayList<Elfo> resultado = exercito.buscar(Status.ATACANDO);
+        // Assert
+        assertEquals(esperado, resultado);
+    }
 }
