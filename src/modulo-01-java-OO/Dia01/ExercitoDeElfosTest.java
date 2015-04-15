@@ -16,15 +16,47 @@ public class ExercitoDeElfosTest
     @Test
     public void insereApenasElfosValidos()
     {
-        Elfo elfo1 = new Elfo("Nome");
         ElfoComCor elfo2 = new ElfoComCor("Nome");
-        ElfoNoturno elfo3 = new ElfoNoturno("Nome");
+        ElfoNoturno elfo3 = new ElfoNoturno("Nome2");
         ExercitoDeElfos exercito = new ExercitoDeElfos();
-        exercito.alistaElfo(elfo1);
         exercito.alistaElfo(elfo2);
         exercito.alistaElfo(elfo3);
         int qtdeEsperada = 2;
         int qtdeEncontrada = exercito.getQuantidadeAlistados();
         assertEquals(qtdeEsperada, qtdeEncontrada);
+    }
+    
+    @Test
+    
+    public void elfoNormalNaoAlista()
+    {
+        Elfo elfo1 = new Elfo("Nome");
+        ExercitoDeElfos exercito = new ExercitoDeElfos();
+        exercito.alistaElfo(elfo1);
+        int qtdeEsperada = 0;
+        int qtdeEncontrada = exercito.getQuantidadeAlistados();
+        assertEquals(qtdeEsperada, qtdeEncontrada);
+    }
+    
+    @Test
+    public void buscaNomeNaoAlistadoRetornaNull()
+    {
+        ExercitoDeElfos exercito = new ExercitoDeElfos();
+        Elfo esperado = null;
+        Elfo obtido = exercito.buscar("Um nome ai");
+        assertEquals(esperado, obtido);
+    }
+    
+    @Test
+    public void buscaNomeERetornaEncontrado()
+    {
+        ElfoComCor elfo2 = new ElfoComCor("Nome");
+        ElfoNoturno elfo3 = new ElfoNoturno("Nome2");
+        ExercitoDeElfos exercito = new ExercitoDeElfos();
+        exercito.alistaElfo(elfo2);
+        exercito.alistaElfo(elfo3);
+        Elfo esperado = elfo2;
+        Elfo obtido = exercito.buscar("Nome");
+        assertEquals(esperado, obtido);
     }
 }

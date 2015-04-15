@@ -7,7 +7,7 @@ import java.util.*;
  */
 public class ExercitoDeElfos
 {
-   private HashMap<String, Elfo> exercito= new HashMap<>();
+   private HashMap<String, Elfo> exercito = new HashMap<>();
    
    public void alistaElfo(Elfo elfo)
    {
