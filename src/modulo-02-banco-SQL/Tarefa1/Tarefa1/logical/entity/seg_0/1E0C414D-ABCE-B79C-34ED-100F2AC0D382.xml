@@ -1,0 +1,111 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="1E0C414D-ABCE-B79C-34ED-100F2AC0D382" name="Pessoa">
+<createdBy>projetocrescer</createdBy>
+<createdTime>2015-04-17 19:24:44 UTC</createdTime>
+<generatorID>Gerado pelo usuário</generatorID>
+<ownerDesignName>Tarefa1</ownerDesignName>
+<engineerTo>
+<item key="ED5217D5-0936-9A8E-A098-6BB466190ED4" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="IDPessoa" id="AEEA27ED-AC7B-B76D-91C7-29C475114711">
+<createdBy>projetocrescer</createdBy>
+<createdTime>2015-04-17 19:25:18 UTC</createdTime>
+<generatorID>Gerado pelo usuário</generatorID>
+<ownerDesignName>Tarefa1</ownerDesignName>
+<engineerTo>
+<item key="ED5217D5-0936-9A8E-A098-6BB466190ED4" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+</Attribute>
+<Attribute name="Nome" id="5445FAD7-4C5B-D7EA-F8A4-67170E2644FF">
+<createdBy>projetocrescer</createdBy>
+<createdTime>2015-04-17 19:25:30 UTC</createdTime>
+<generatorID>Gerado pelo usuário</generatorID>
+<ownerDesignName>Tarefa1</ownerDesignName>
+<engineerTo>
+<item key="ED5217D5-0936-9A8E-A098-6BB466190ED4" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100</dataTypeSize>
+</Attribute>
+<Attribute name="CPF" id="B99F9CA1-A1AA-EC66-1E1D-2D8B7329928F">
+<createdBy>projetocrescer</createdBy>
+<createdTime>2015-04-17 19:25:39 UTC</createdTime>
+<generatorID>Gerado pelo usuário</generatorID>
+<ownerDesignName>Tarefa1</ownerDesignName>
+<engineerTo>
+<item key="ED5217D5-0936-9A8E-A098-6BB466190ED4" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+</Attribute>
+<Attribute name="Endereco" id="ACCBDA4A-FE4F-6758-888E-5ACCAC6B5EF5">
+<createdBy>projetocrescer</createdBy>
+<createdTime>2015-04-17 19:25:48 UTC</createdTime>
+<generatorID>Gerado pelo usuário</generatorID>
+<ownerDesignName>Tarefa1</ownerDesignName>
+<engineerTo>
+<item key="ED5217D5-0936-9A8E-A098-6BB466190ED4" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>300</dataTypeSize>
+</Attribute>
+<Attribute name="Telefone" id="8D313405-85C8-8454-D0BA-31B32219D547">
+<createdBy>projetocrescer</createdBy>
+<createdTime>2015-04-17 19:25:58 UTC</createdTime>
+<generatorID>Gerado pelo usuário</generatorID>
+<ownerDesignName>Tarefa1</ownerDesignName>
+<engineerTo>
+<item key="ED5217D5-0936-9A8E-A098-6BB466190ED4" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50</dataTypeSize>
+</Attribute>
+<Attribute name="Email" id="D9473A87-B8F3-6090-5D3D-5854053747B8">
+<createdBy>projetocrescer</createdBy>
+<createdTime>2015-04-17 19:26:08 UTC</createdTime>
+<generatorID>Gerado pelo usuário</generatorID>
+<ownerDesignName>Tarefa1</ownerDesignName>
+<engineerTo>
+<item key="ED5217D5-0936-9A8E-A098-6BB466190ED4" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100</dataTypeSize>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="DFC724A8-B6E8-2896-5C53-34CB24F61DE7" name="{entity} PK">
+<createdBy>projetocrescer</createdBy>
+<createdTime>2015-04-17 19:25:29 UTC</createdTime>
+<generatorID>Gerado pelo usuário</generatorID>
+<ownerDesignName>Tarefa1</ownerDesignName>
+<engineerTo>
+<item key="ED5217D5-0936-9A8E-A098-6BB466190ED4" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>AEEA27ED-AC7B-B76D-91C7-29C475114711</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

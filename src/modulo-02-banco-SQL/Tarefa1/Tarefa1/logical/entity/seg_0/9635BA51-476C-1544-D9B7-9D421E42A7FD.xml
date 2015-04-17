@@ -1,0 +1,72 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="9635BA51-476C-1544-D9B7-9D421E42A7FD" name="Cliente">
+<createdBy>projetocrescer</createdBy>
+<createdTime>2015-04-17 19:26:40 UTC</createdTime>
+<generatorID>Gerado pelo usuário</generatorID>
+<ownerDesignName>Tarefa1</ownerDesignName>
+<engineerTo>
+<item key="ED5217D5-0936-9A8E-A098-6BB466190ED4" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="IDCliente" id="C7D48916-494D-5A38-3DAD-EAD2067AD211">
+<createdBy>projetocrescer</createdBy>
+<createdTime>2015-04-17 19:26:48 UTC</createdTime>
+<generatorID>Gerado pelo usuário</generatorID>
+<ownerDesignName>Tarefa1</ownerDesignName>
+<engineerTo>
+<item key="ED5217D5-0936-9A8E-A098-6BB466190ED4" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+</Attribute>
+<Attribute name="Endereco_Cobranca" id="1CF0D385-5D19-506D-008A-268B6F44B52A">
+<createdBy>projetocrescer</createdBy>
+<createdTime>2015-04-17 19:26:55 UTC</createdTime>
+<generatorID>Gerado pelo usuário</generatorID>
+<ownerDesignName>Tarefa1</ownerDesignName>
+<engineerTo>
+<item key="ED5217D5-0936-9A8E-A098-6BB466190ED4" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+</Attribute>
+<Attribute name="IDPessoa" id="366668C5-5E3C-3F88-AE9E-35F6D5636A89">
+<createdBy>projetocrescer</createdBy>
+<createdTime>2015-04-17 20:05:12 UTC</createdTime>
+<generatorID>C0DD1B17-E78F-DEAB-214B-E004C2D9A730</generatorID>
+<ownerDesignName>Tarefa1</ownerDesignName>
+<engineerTo>
+<item key="ED5217D5-0936-9A8E-A098-6BB466190ED4" value="true"/>
+</engineerTo>
+<referedAttribute>AEEA27ED-AC7B-B76D-91C7-29C475114711</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="8BF4FE0F-CA69-9205-3D20-F1115AED9FEC" name="{entity} PK">
+<createdBy>projetocrescer</createdBy>
+<createdTime>2015-04-17 20:04:36 UTC</createdTime>
+<generatorID>Gerado pelo usuário</generatorID>
+<ownerDesignName>Tarefa1</ownerDesignName>
+<engineerTo>
+<item key="ED5217D5-0936-9A8E-A098-6BB466190ED4" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>C7D48916-494D-5A38-3DAD-EAD2067AD211</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

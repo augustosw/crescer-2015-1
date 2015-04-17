@@ -1,0 +1,165 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="E6E5BD52-AE8E-77B6-78C4-AC9FEEB0A32F" name="Contrato">
+<createdBy>projetocrescer</createdBy>
+<createdTime>2015-04-17 20:05:41 UTC</createdTime>
+<generatorID>C76EA431-31EA-0087-CCAC-340B910B7BAB</generatorID>
+<ownerDesignName>Tarefa1</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="IDContrato" id="0A2A9B2B-32CA-620B-DDC4-400991C6314B">
+<createdBy>projetocrescer</createdBy>
+<createdTime>2015-04-17 20:05:41 UTC</createdTime>
+<generatorID>20B599C4-7650-B816-A28B-4A8F9C5FD42B</generatorID>
+<ownerDesignName>Tarefa1</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Data_Inicio" id="350E08EF-AFB5-315A-97FE-F4DC83FDF0E9">
+<createdBy>projetocrescer</createdBy>
+<createdTime>2015-04-17 20:05:41 UTC</createdTime>
+<generatorID>4B5BFA24-5846-3BDF-2045-F0FA173BF391</generatorID>
+<ownerDesignName>Tarefa1</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Data_Termino" id="0693F7B8-38A2-4941-0502-FE22BBC8CD3A">
+<createdBy>projetocrescer</createdBy>
+<createdTime>2015-04-17 20:05:41 UTC</createdTime>
+<generatorID>4C04607F-C483-95BD-4712-7D6180B25402</generatorID>
+<ownerDesignName>Tarefa1</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Endereco_Cobranca" id="FA8D8447-E5B7-8722-14AD-7637AE3B5174">
+<createdBy>projetocrescer</createdBy>
+<createdTime>2015-04-17 20:05:41 UTC</createdTime>
+<generatorID>755FCE7F-B428-99A7-33F2-C0CEBDAD1B33</generatorID>
+<ownerDesignName>Tarefa1</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>300</dataTypeSize>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Endereco_Entrega" id="8D7B3E89-F4E3-1D53-71EF-57F3E50E9670">
+<createdBy>projetocrescer</createdBy>
+<createdTime>2015-04-17 20:05:41 UTC</createdTime>
+<generatorID>3524017E-6C52-6901-F4DB-6A16BD92FB25</generatorID>
+<ownerDesignName>Tarefa1</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>300</dataTypeSize>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Valor_Total" id="FE7BE66C-1405-9285-BC63-A849B237BA31">
+<createdBy>projetocrescer</createdBy>
+<createdTime>2015-04-17 20:05:41 UTC</createdTime>
+<generatorID>CB9153BF-FC6A-20B4-1960-DCEFA30965B3</generatorID>
+<ownerDesignName>Tarefa1</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="IDSeguro" id="52EDE23D-AD01-32C0-AA00-D950CCCE725B">
+<createdBy>projetocrescer</createdBy>
+<createdTime>2015-04-17 20:05:41 UTC</createdTime>
+<generatorID>685B1B05-5E17-F1DA-3CB9-A8D1487224D1</generatorID>
+<ownerDesignName>Tarefa1</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<delegate>8F7001E7-ADF1-FF6E-8941-8F8BBC723223</delegate>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="F57CF184-6E21-15D0-EC99-AE1B1AC312BA" referredColumn="8F7001E7-ADF1-FF6E-8941-8F8BBC723223"/>
+</associations>
+</Column>
+<Column name="IDCliente" id="B7B486B0-81F3-942D-F5E0-B8773FF1FC6F">
+<createdBy>projetocrescer</createdBy>
+<createdTime>2015-04-17 20:05:41 UTC</createdTime>
+<generatorID>741C5AA7-6E46-20BA-B4BB-928BDB0F10C9</generatorID>
+<ownerDesignName>Tarefa1</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<delegate>EFDC4A5F-E031-4EA2-C71B-0D4D50F5BC84</delegate>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="02C72D57-1BF9-F65C-79CA-D69C4BF0232A" referredColumn="EFDC4A5F-E031-4EA2-C71B-0D4D50F5BC84"/>
+</associations>
+</Column>
+<Column name="IDBeneficiario" id="0B37CACC-0CAF-8062-B913-A698145C0383">
+<createdBy>projetocrescer</createdBy>
+<createdTime>2015-04-17 20:05:41 UTC</createdTime>
+<generatorID>A4E086DA-5644-E06A-D31F-8B686F16D30C</generatorID>
+<ownerDesignName>Tarefa1</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<delegate>AE862FC0-039C-4FDB-34EE-4F94D95ED8DA</delegate>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="393A9081-E2A3-57B7-9F9A-18FF756094A8" referredColumn="AE862FC0-039C-4FDB-34EE-4F94D95ED8DA"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="CF595AF7-F65D-C2BC-A2DF-D7914B3037DE" name="Contrato_PK">
+<createdBy>projetocrescer</createdBy>
+<createdTime>2015-04-17 20:05:41 UTC</createdTime>
+<generatorID>5E6E1308-5076-56D8-E7BE-C7EB53142D24</generatorID>
+<ownerDesignName>Tarefa1</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="0A2A9B2B-32CA-620B-DDC4-400991C6314B"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="3A6E3024-5387-6597-ECFD-053A3D1C9717" name="Contrato_Seguro_FK">
+<createdBy>projetocrescer</createdBy>
+<createdTime>2015-04-17 20:05:41 UTC</createdTime>
+<generatorID>986AA85D-2EE5-F120-CBB3-8A4C0112472B</generatorID>
+<ownerDesignName>Tarefa1</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="52EDE23D-AD01-32C0-AA00-D950CCCE725B"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="DDBA167B-8FFF-66A8-0AA7-51FE5AD042D7" name="Contrato_Cliente_FK">
+<createdBy>projetocrescer</createdBy>
+<createdTime>2015-04-17 20:05:41 UTC</createdTime>
+<generatorID>353C20A7-4A9B-358F-D281-7D5D152CFBE8</generatorID>
+<ownerDesignName>Tarefa1</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="B7B486B0-81F3-942D-F5E0-B8773FF1FC6F"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="8F05483E-6DBA-0F9A-2874-D252114AC7D3" name="Contrato_Pessoa_FK">
+<createdBy>projetocrescer</createdBy>
+<createdTime>2015-04-17 20:05:41 UTC</createdTime>
+<generatorID>3A442931-F374-B9CC-FD69-7542B60F03B3</generatorID>
+<ownerDesignName>Tarefa1</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="0B37CACC-0CAF-8062-B913-A698145C0383"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

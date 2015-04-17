@@ -1,0 +1,83 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="C4ADE897-A47E-F2A4-9DFB-938C425EE36F" name="Cliente">
+<createdBy>projetocrescer</createdBy>
+<createdTime>2015-04-17 20:05:41 UTC</createdTime>
+<generatorID>9635BA51-476C-1544-D9B7-9D421E42A7FD</generatorID>
+<ownerDesignName>Tarefa1</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="IDCliente" id="EFDC4A5F-E031-4EA2-C71B-0D4D50F5BC84">
+<createdBy>projetocrescer</createdBy>
+<createdTime>2015-04-17 20:05:41 UTC</createdTime>
+<generatorID>C7D48916-494D-5A38-3DAD-EAD2067AD211</generatorID>
+<ownerDesignName>Tarefa1</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Endereco_Cobranca" id="88FF0B27-5FB3-B719-6DE9-127D4E5C8BD8">
+<createdBy>projetocrescer</createdBy>
+<createdTime>2015-04-17 20:05:41 UTC</createdTime>
+<generatorID>1CF0D385-5D19-506D-008A-268B6F44B52A</generatorID>
+<ownerDesignName>Tarefa1</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="IDPessoa" id="1839B6C3-F804-45D2-BC8F-127E417279C3">
+<createdBy>projetocrescer</createdBy>
+<createdTime>2015-04-17 20:05:41 UTC</createdTime>
+<generatorID>366668C5-5E3C-3F88-AE9E-35F6D5636A89</generatorID>
+<ownerDesignName>Tarefa1</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<delegate>AE862FC0-039C-4FDB-34EE-4F94D95ED8DA</delegate>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="8DCF7EFE-7D56-00C6-24EF-0594D943A87B" referredColumn="AE862FC0-039C-4FDB-34EE-4F94D95ED8DA"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="F60985E5-3175-D689-C609-769B58188F53" name="Cliente_PK">
+<createdBy>projetocrescer</createdBy>
+<createdTime>2015-04-17 20:05:41 UTC</createdTime>
+<generatorID>8BF4FE0F-CA69-9205-3D20-F1115AED9FEC</generatorID>
+<ownerDesignName>Tarefa1</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="EFDC4A5F-E031-4EA2-C71B-0D4D50F5BC84"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="3DFB712C-7CFE-80F9-5695-2AD984348BCD" name="Cliente__IDX">
+<createdBy>projetocrescer</createdBy>
+<createdTime>2015-04-17 20:05:41 UTC</createdTime>
+<generatorID>Gerado pelo usuário</generatorID>
+<ownerDesignName>Tarefa1</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<relationGeneratorID>C0DD1B17-E78F-DEAB-214B-E004C2D9A730</relationGeneratorID>
+<indexColumnUsage>
+<colUsage columnID="1839B6C3-F804-45D2-BC8F-127E417279C3"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="B005101D-1217-A8CF-A410-3BB4050C6C3A" name="Cliente_Pessoa_FK">
+<createdBy>projetocrescer</createdBy>
+<createdTime>2015-04-17 20:05:41 UTC</createdTime>
+<generatorID>C0DD1B17-E78F-DEAB-214B-E004C2D9A730</generatorID>
+<ownerDesignName>Tarefa1</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="1839B6C3-F804-45D2-BC8F-127E417279C3"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

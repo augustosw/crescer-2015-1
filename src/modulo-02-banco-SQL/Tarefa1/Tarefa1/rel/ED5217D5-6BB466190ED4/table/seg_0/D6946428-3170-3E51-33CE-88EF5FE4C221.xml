@@ -1,0 +1,89 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="D6946428-3170-3E51-33CE-88EF5FE4C221" name="Pessoa">
+<createdBy>projetocrescer</createdBy>
+<createdTime>2015-04-17 20:05:41 UTC</createdTime>
+<generatorID>1E0C414D-ABCE-B79C-34ED-100F2AC0D382</generatorID>
+<ownerDesignName>Tarefa1</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="IDPessoa" id="AE862FC0-039C-4FDB-34EE-4F94D95ED8DA">
+<createdBy>projetocrescer</createdBy>
+<createdTime>2015-04-17 20:05:41 UTC</createdTime>
+<generatorID>AEEA27ED-AC7B-B76D-91C7-29C475114711</generatorID>
+<ownerDesignName>Tarefa1</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Nome" id="F31E399A-57BA-0169-8CE4-9BCAFBC1FDAE">
+<createdBy>projetocrescer</createdBy>
+<createdTime>2015-04-17 20:05:41 UTC</createdTime>
+<generatorID>5445FAD7-4C5B-D7EA-F8A4-67170E2644FF</generatorID>
+<ownerDesignName>Tarefa1</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100</dataTypeSize>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="CPF" id="64A9417B-A6D9-FEBB-E570-D5F65403A4C0">
+<createdBy>projetocrescer</createdBy>
+<createdTime>2015-04-17 20:05:41 UTC</createdTime>
+<generatorID>B99F9CA1-A1AA-EC66-1E1D-2D8B7329928F</generatorID>
+<ownerDesignName>Tarefa1</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Endereco" id="07F257E9-75A1-5479-302A-CF391872F226">
+<createdBy>projetocrescer</createdBy>
+<createdTime>2015-04-17 20:05:41 UTC</createdTime>
+<generatorID>ACCBDA4A-FE4F-6758-888E-5ACCAC6B5EF5</generatorID>
+<ownerDesignName>Tarefa1</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>300</dataTypeSize>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Telefone" id="22EC10D6-6064-2D80-5BFA-1745E19722D7">
+<createdBy>projetocrescer</createdBy>
+<createdTime>2015-04-17 20:05:41 UTC</createdTime>
+<generatorID>8D313405-85C8-8454-D0BA-31B32219D547</generatorID>
+<ownerDesignName>Tarefa1</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50</dataTypeSize>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Email" id="48CCC82F-13EE-CBD0-99A8-CA1A7707FF8F">
+<createdBy>projetocrescer</createdBy>
+<createdTime>2015-04-17 20:05:41 UTC</createdTime>
+<generatorID>D9473A87-B8F3-6090-5D3D-5854053747B8</generatorID>
+<ownerDesignName>Tarefa1</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100</dataTypeSize>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="C98C426F-2D54-EEF2-B8B9-FB9759B79C5E" name="Pessoa_PK">
+<createdBy>projetocrescer</createdBy>
+<createdTime>2015-04-17 20:05:41 UTC</createdTime>
+<generatorID>DFC724A8-B6E8-2896-5C53-34CB24F61DE7</generatorID>
+<ownerDesignName>Tarefa1</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="AE862FC0-039C-4FDB-34EE-4F94D95ED8DA"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

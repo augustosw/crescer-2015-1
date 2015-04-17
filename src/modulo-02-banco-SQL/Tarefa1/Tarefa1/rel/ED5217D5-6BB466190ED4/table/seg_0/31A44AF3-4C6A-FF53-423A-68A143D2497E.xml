@@ -1,0 +1,58 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="31A44AF3-4C6A-FF53-423A-68A143D2497E" name="Seguro">
+<createdBy>projetocrescer</createdBy>
+<createdTime>2015-04-17 20:05:41 UTC</createdTime>
+<generatorID>373EFC91-05E6-554E-51A2-2F827AF513E4</generatorID>
+<ownerDesignName>Tarefa1</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="IDSeguro" id="8F7001E7-ADF1-FF6E-8941-8F8BBC723223">
+<createdBy>projetocrescer</createdBy>
+<createdTime>2015-04-17 20:05:41 UTC</createdTime>
+<generatorID>9BB35DEF-4116-5A3F-8CE1-29917382D922</generatorID>
+<ownerDesignName>Tarefa1</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Descricao" id="376AF14A-C00F-4F6F-AA3D-80D6AFB71508">
+<createdBy>projetocrescer</createdBy>
+<createdTime>2015-04-17 20:05:41 UTC</createdTime>
+<generatorID>0DF4D333-F1FF-4EB9-3A4A-B8CA7D353A9F</generatorID>
+<ownerDesignName>Tarefa1</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>300</dataTypeSize>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Valor" id="C67EE72C-1F55-93B8-FEB1-021768BCDE18">
+<createdBy>projetocrescer</createdBy>
+<createdTime>2015-04-17 20:05:41 UTC</createdTime>
+<generatorID>64EEB980-8335-7B86-B6AD-8F6EDC6156E4</generatorID>
+<ownerDesignName>Tarefa1</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT026</logicalDatatype>
+<dataTypePrecision>7</dataTypePrecision>
+<dataTypeScale>2</dataTypeScale>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="5F7A97A1-AA6B-BFD6-FEF8-B61F12EB584D" name="Seguro_PK">
+<createdBy>projetocrescer</createdBy>
+<createdTime>2015-04-17 20:05:41 UTC</createdTime>
+<generatorID>B82C3156-91AD-F62E-5014-99A972A53EBC</generatorID>
+<ownerDesignName>Tarefa1</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="8F7001E7-ADF1-FF6E-8941-8F8BBC723223"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

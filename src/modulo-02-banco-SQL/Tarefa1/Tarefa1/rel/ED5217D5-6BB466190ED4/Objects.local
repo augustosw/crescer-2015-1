@@ -1,0 +1,11 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<oracle.dbtools.crest.model.design.relational.RelationalDesign>
+   <object objectType="Table" objectID="31A44AF3-4C6A-FF53-423A-68A143D2497E" name="Seguro" seqName="seg_0"/>
+   <object objectType="Table" objectID="C4ADE897-A47E-F2A4-9DFB-938C425EE36F" name="Cliente" seqName="seg_0"/>
+   <object objectType="Table" objectID="D6946428-3170-3E51-33CE-88EF5FE4C221" name="Pessoa" seqName="seg_0"/>
+   <object objectType="Table" objectID="E6E5BD52-AE8E-77B6-78C4-AC9FEEB0A32F" name="Contrato" seqName="seg_0"/>
+   <object objectType="FKIndexAssociation" objectID="02C72D57-1BF9-F65C-79CA-D69C4BF0232A" name="Contrato_Cliente_FK" seqName="seg_0"/>
+   <object objectType="FKIndexAssociation" objectID="393A9081-E2A3-57B7-9F9A-18FF756094A8" name="Contrato_Pessoa_FK" seqName="seg_0"/>
+   <object objectType="FKIndexAssociation" objectID="8DCF7EFE-7D56-00C6-24EF-0594D943A87B" name="Cliente_Pessoa_FK" seqName="seg_0"/>
+   <object objectType="FKIndexAssociation" objectID="F57CF184-6E21-15D0-EC99-AE1B1AC312BA" name="Contrato_Seguro_FK" seqName="seg_0"/>
+</oracle.dbtools.crest.model.design.relational.RelationalDesign>
