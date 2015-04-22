@@ -1,4 +1,4 @@
-select top 1 nome 
+select substring(nome, 1, CHARINDEX(' ', nome) -1)
 from Associado;
 
 select nome, DATEDIFF(YEAR, DataNascimento, GETDATE()) as Idade

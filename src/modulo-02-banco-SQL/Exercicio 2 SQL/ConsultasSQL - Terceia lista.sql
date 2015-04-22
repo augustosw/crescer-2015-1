@@ -24,12 +24,19 @@
 --10)Limpe a tabela CidadeAux, e insira somente as cidades com nomes e UF’s distintos, 
 --	 considere somente o menor código ID das cidades duplicadas.
 	truncate table CidadeAux;
-	insert into CidadeAux(Nome, IDCidade, UF) select distinct Nome, IDCidade, UF from Cidade;
+
+	insert into CidadeAux(IDCidade, Nome, UF) 
+
+	select min(IDCidade), nome, UF from cidade 
+	where exists (select distinct Nome, UF from Cidade)
+	group by Nome, uf
+
+
+
+
+
 
 	select Nome, UF, count(1)
 	from CidadeAux
 	group by Nome, UF
 	having count(1) > 1
-
-	insert into CidadeAux(IDCidade, Nome, UF) 
-select IDCidade, Nome, UF from Cidade;
