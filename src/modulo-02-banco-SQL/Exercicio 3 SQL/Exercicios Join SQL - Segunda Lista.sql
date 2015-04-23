@@ -1,9 +1,16 @@
 --5)Liste o nome do empregado, o nome do gerente, e o departamento de cada um.
 Select E.NomeEmpregado as Nome_Empregado,
+       D.NomeDepartamento as Departaemnto_Empregado,
 	   E1.NomeEmpregado as Nome_Gerente,
-	   D.NomeDepartamento as Departaemnto
+	   D.NomeDepartamento as Departamento_Gerente
 From Empregado E, Empregado E1, Departamento D
-Where E.IDGerente = E1.IDEmpregado AND E.IDDepartamento = D.IDDepartamento
+Where E.IDGerente = E1.IDEmpregado AND 
+      E.IDDepartamento = D.IDDepartamento AND
+	  E1.IDDepartamento = D.IDDepartamento
+
+Select NomeEmpregado, IDGerente, IDDepartamento
+From Empregado
+      
 
 
 ---6)Faça uma cópia da tabela Empregado e altere o salário de todos os empregados
