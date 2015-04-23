@@ -18,7 +18,7 @@
 
 --9)Identifique qual deve ser o próximo ID para a 
 --  criação de um novo registro na tabela Associado (maior + 1).
-	select max(IDAssociado)+1
+	select isnull (max(IDAssociado),0) +1
 	from Associado
 
 --10)Limpe a tabela CidadeAux, e insira somente as cidades com nomes e UF’s distintos, 
@@ -28,15 +28,20 @@
 	insert into CidadeAux(IDCidade, Nome, UF) 
 
 	select min(IDCidade), nome, UF from cidade 
-	where exists (select distinct Nome, UF from Cidade)
 	group by Nome, uf
 
+	
+	select max(IDCidade), nome, UF from cidade 
+	where exists (select Nome, UF from Cidade group by Nome, UF having count(1) > 1)
+	group by Nome, uf
+
+	
 
 
 
 
 
 	select Nome, UF, count(1)
-	from CidadeAux
+	from Cidade
 	group by Nome, UF
 	having count(1) > 1
