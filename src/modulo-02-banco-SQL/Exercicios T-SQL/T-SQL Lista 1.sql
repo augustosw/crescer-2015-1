@@ -1,3 +1,16 @@
+--1)-----
+
+Select top 1 with ties 
+	   PedidoItem.IDPRoduto, 
+	   Produto.Nome,
+	   SUM(Quantidade) Total_Itens
+From PedidoItem 
+     inner join Produto on Produto.IDProduto = PedidoItem.IDProduto
+Group by PedidoItem.IDProduto, Produto.Nome
+Order by Total_Itens desc
+
+
+
 --2)Liste as cidades com nome e UF duplicados que tenham clientes relacionados.
 BEGIN
 	DECLARE ListaCidade CURSOR
@@ -6,8 +19,6 @@ BEGIN
 
 	FOR select Nome, UF
 		from Cidade
-		where IDCidade in (Select Distinct IDCidade 
-		                   From Cliente)
 		group by Nome, UF
 		having count(1) > 1;
 
@@ -58,3 +69,31 @@ BEGIN
 	CLOSE ProdutosComMaterial;
 	DEALLOCATE ProdutosComMaterial;
 END
+
+
+select SUM(ValorPedido) as ValorTotal
+from Pedido Ped
+	inner join PedidoItem Item on Item.IDPedido = Ped.IDPedido
+	inner join Produto Prod on Prod.IDProduto = Item.IDProduto
+	--inner join ProdutoMaterial PM on PM.IDProduto = Prod.IDProduto
+where Ped.DataPedido between DATEADD(day, -60, GETDATE()) and GETDATE()
+	and Prod.IDProduto in (Select IDProduto from vw_ProdutosUtilizados);
+
+Ped.IDPedido, Item.IDPedidoItem, Prod.IDProduto, Prod.Nome, Item.Quantidade, 
+
+create view vw_ProdutosUtilizados as
+Select pro.IDProduto, pro.Nome
+	     From Produto pro
+		 Where exists (Select 1 
+			           from ProdutoMaterial pm
+					   where pm.IDProduto = pro.IDProduto
+					   and pm.IDMaterial in (Select IDMaterial from vw_produtosMaisUtilizado));
+
+
+create view vw_produtosMaisUtilizado as
+Select top 1 with ties ma.IDMaterial, ma.Descricao, count(distinct pm.IDProduto) as Total
+	From Material ma
+		inner join ProdutoMaterial pm on pm.IDMaterial = ma.IDMaterial
+		inner join Produto pr on pr.IDProduto = pm.IDProduto
+	Group by ma.IDMaterial, ma.Descricao
+    order by Total desc;
