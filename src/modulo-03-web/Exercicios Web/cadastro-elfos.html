@@ -1,0 +1,48 @@
+<!doctype>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Formulário de Cadastro dos Elfos</title>
+	</head>
+	<body>
+		<h2>Formulário de Cadastro dos Elfos</h2><br><br>
+		<form method="POST">
+			<div style="height: 50px;">
+				<label for="nome"><b>Nome:</b></label>
+				<input name="nome" type="text" placeholder="Nome do Elfo">
+			</div>
+			<div style="height: 50px;">
+				<label for="sexo"><b>Sexo:</b></label>
+				<input type="radio" name="sex" value="Masculino" checked>Masculino
+				<input type="radio" name="sex" value="Feminino">Feminino
+			</div>
+			<div style="height: 50px;">
+				<label for="qtde"><b>Quantidade de Flechas iniciais do Elfo:</b></label>
+				<input name="qtde" type="number" placeholder="Numero de Flechas">
+			</div>
+			<div style="height: 50px;">
+				<label for="data"><b>Data de Nascimento:</b></label>
+				<input name="data" type="date" placeholder="Data">
+			</div>
+			<div style="height: 50px;">
+				<label for="status"><b>Status inicial do Elfo:</b></label>
+				<input name="status" type="text" placeholder="Status Inicial">
+			</div>
+			<div style="height: 100;">
+				<label for="itens"><b>Itens iniciais do Elfo:</b></label><br>
+				<input type="checkbox" name="item1" value="Arco e Flecha" checked>Arco e Flecha<br>
+				<input type="checkbox" name="item2" value="Espada de aço Porto-alegrense">Espada de aço Porto-alegrense<br>
+				<input type="checkbox" name="item3" value="Escudo de amburana" checked>Escudo de amburana<br>
+				<input type="checkbox" name="item4" value="Poção HP">Poção HP<br>
+			</div>
+			<br><br><br>
+			<div style="height: 50px;">
+				<label for="imagem"><b>Foto Élfica:</b></label>
+				<input name="imagem" type="file" accept=".jpg,.png" placeholder="Foto Elfo">
+			</div>
+			<div style="height: 50px;">
+				<input type="submit" value="Enviar Cadastro">
+			</div>
+		</form>
+	</body>
+</html>
