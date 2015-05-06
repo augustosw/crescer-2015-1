@@ -41,12 +41,35 @@
 			</div>
 			<br><br><br>
 			<div style="height: 50px;">
-				<label for="imagem"><b>Foto Élfica:</b></label>
-				<input name="imagem" type="file" accept=".jpg,.png">
+				<label for="avatar"><b>Foto Élfica:</b></label>
+				<input name="avatar" type="file" accept=".jpg,.png" onchange="return validaExt()">
 			</div>
 			<div style="height: 50px;">
 				<input type="submit" value="Enviar Cadastro">
 			</div>
 		</form>
+		<script>
+			function validaExt(){
+				var nomeArquivo = document.getElementsByName('avatar')[0].value;
+				var valida = false;
+				var extensoesValidas = ['.jpg', '.jpeg', '.png'];
+				for (var i = 0, len = extensoesValidas.lenght; i< len; i++;){
+					var ext = extensoesValidas[i];
+					var apenasExtensao = nomeArquivo.substring(nomeArquivo.lenght-ext.lenght, nomeArquivo.lenght).toLowerCase();
+					
+					if(apenasExtensao === ext.toLowerCase()){
+						valida = true;
+						break;
+					}
+				}
+				
+				if(valida === false){
+					alert('Extensão Inválida!!');
+					inputFile.value = null;
+				}
+				
+				return valida;
+			}
+		</script>
 	</body>
 </html>
