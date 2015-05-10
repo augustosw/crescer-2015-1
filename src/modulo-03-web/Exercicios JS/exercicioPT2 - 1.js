@@ -1,14 +1,6 @@
 var brewdog = function(string1, string2){
-					var leng1 = string1.length;
-					var leng2 = string2.length;
-					var lengFor;
-					diferenca = 0;
+					var lengFor = Math.max(string1.length, string2.length);
 					diferentes = 0;
-					
-					lengFor = leng1;
-					if(leng1 > leng2){lengFor = leng2;
-					                  diferenca = leng1 - leng2;}
-					else if(leng1 < leng2){diferenca = leng2 - leng1;}
 					
 					for(i = 0; i < lengFor; i++)
 					{                        
@@ -16,9 +8,7 @@ var brewdog = function(string1, string2){
 						{
 							diferentes++;
 						}
-					}
-					
-					diferentes += diferenca;
+					}					
 					
 					return diferentes;
 				};

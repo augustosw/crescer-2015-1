@@ -46,7 +46,7 @@ function Emprestimo(valorTotal, taxaJuros, quantidadeParcelas) {
   [
     { emprestimo: new Emprestimo(1800, 0.13, 8),  esperado: 1200.8 },
     { emprestimo: new Emprestimo(1000, 0.03, 4),  esperado: 76.12 },
-    { emprestimo: new Emprestimo(500, 0.05}),      esperado: 50.8 },
+    { emprestimo: new Emprestimo(500, 0.05),      esperado: 50.8 },
   ].forEach(
     function(ct) {
       var res = ct.emprestimo.valorTotalJuros();
