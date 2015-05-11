@@ -51,7 +51,7 @@ var somarPorNacionais = function(i){
 	return i.map(function(a){return a.titulos[0].qtd;})
 	.reduce(function(a, b){ return a + b;});	
 };
-var somarPorContinentais = funciton(i){
+var somarPorContinentais = function(i){
 	return i.map(funtion(a){return a.titulos[1].qtd;})
 	.reduce(function(a, b){ return a + b;});	
 };
@@ -67,4 +67,5 @@ var apenasOsMelhores = function(i){
 	return maiores;
 };
 
-
+var apenasOsMelhoresParaJSON = function(a){return JSON.stringify(apenasOsMelhores(a));};
+var apenasOsMelhoresRecebendoJSON = function(a){ return JSON.parse(apenasOsMelhoresParaJSON(a));};
