@@ -1,14 +1,35 @@
+//Exercicios: https://gist.github.com/bernardobrezende/652cc9d5cd65889b8f78
+
 //1A
 var objetos = $(".module");
 
 //1B
 var terceiro = $("#myList li:nth-child(3)");
+var terceiro = $("#myList :eq(2)");
 
 //1C
 var labelSearch = $("label[for=q]");
+var labelSearch = $("#search label[for=q]");
 
 //1D
 var altes = $("[alt]").size();
 
 //1E
 var linhas = $('#fruits tr:even:not(:first-child)');
+
+//1F
+$("h2:contains('B'):contains('e')").lenght;
+
+//1G
+$("#myList li:not(.current)")
+$("#myList li").not('.current')
+
+//1H
+$("img:last, h3:last")
+
+//1I
+$("#myList .current ~ li").text().length
+
+
+//3C
+$("div.module").last().after( $("<div/>").addClass('module').append( $('img:eq(0)').clone()));
