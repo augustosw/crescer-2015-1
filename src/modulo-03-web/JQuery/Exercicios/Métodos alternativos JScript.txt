@@ -1,0 +1,5 @@
+//agenda um evento para ser executado depois de tantos ms
+setTimeout(function(){console.log('caiu a ficha!'); }, 2000);
+
+//agente um evento para ser executado sempre a cada tantos ms
+setInterval(function(){console.log('caiu a ficha!'); }, 2000);
