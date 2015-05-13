@@ -1,0 +1,9 @@
+package filmator;
+
+public class Filme {
+	private Ator[] atores;
+	
+	public Filme(Ator[] atores) {
+		this.atores = atores;
+	}
+}

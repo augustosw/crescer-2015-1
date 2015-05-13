@@ -1,0 +1,8 @@
+package filmator;
+
+import java.util.ArrayList;
+
+public class Netflox {
+	private ArrayList<Filme> filmes = new ArrayList<Filme>();
+	
+}

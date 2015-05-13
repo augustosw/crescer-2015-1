@@ -1,0 +1,18 @@
+package filmator;
+
+public class Filme {
+	private Ator[] atores;
+	
+	public Filme(Ator[] atores) {
+		this.atores = atores;
+	}
+	
+	public String toString(){
+		String elenco = "";
+		for (Ator ator : atores) {
+			String complemento = atores[atores.length-1] == ator ? "" : ", ";
+			 elenco += ator.getNome() + complemento;
+		}
+		return elenco;
+	}
+}

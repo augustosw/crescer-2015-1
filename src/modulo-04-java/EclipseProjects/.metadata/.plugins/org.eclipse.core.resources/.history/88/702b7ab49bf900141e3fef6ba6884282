@@ -1,0 +1,21 @@
+package filmator;
+
+import java.util.ArrayList;
+
+public class Filme {
+	private ArrayList<Ator> atores;
+	
+	
+	public String toString(){
+		String elenco = "";
+		for (Ator ator : atores) {
+			 elenco += ator.getNome() +" ";
+		}
+		System.out.println(elenco);
+		return elenco;
+	}
+	
+	public void insereAtor(Ator ator){
+		atores.add(ator);
+	}
+}
