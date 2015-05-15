@@ -1,5 +1,0 @@
-package filmator;
-
-public class Filme {
-	private Ator[] atores;
-}
