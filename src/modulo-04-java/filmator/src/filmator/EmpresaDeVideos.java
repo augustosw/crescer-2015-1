@@ -31,14 +31,15 @@ public class EmpresaDeVideos {
 			}
 		else return 0;
 	}
+	
 	public void reproduzirFilme(Filme filme){
 		if(filmes.contains(filme)){
 			Genero genero = filme.getGenero();
 			int views = visualizazoes.get(genero);
-			visualizazoes.put(genero, views+1);
+			visualizazoes.put(genero, ++views);
 			System.out.println("Reproduzindo agora: " +filme.getNome() +" - Via " +this.getNome());
 		}
-		else System.out.println("O filme "+filme.getNome() +" não encontrado no acervo de "+this.getNome() +"!!\n");
+		else System.out.println("O filme "+filme.getNome() +" não foi encontrado no acervo de "+this.getNome() +"!!\n");
 	}
 	
 	public void gerarRelatorio(){
