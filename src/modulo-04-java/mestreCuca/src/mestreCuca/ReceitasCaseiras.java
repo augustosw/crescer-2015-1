@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.ArrayList;
 
 public class ReceitasCaseiras implements LivroReceitas {
-	static List<Receita> receitas = new ArrayList<>();
+	private List<Receita> receitas = new ArrayList<>();
 	
 	public void inserir(Receita receita){
 		if(!receitas.contains(receita)){
@@ -58,4 +58,37 @@ public class ReceitasCaseiras implements LivroReceitas {
 		}
 		return false;
 	}
+
+	public double calculaValorReceitas(){
+		double valor = 0.0;
+		for (Receita receita : receitas) {
+			valor+= receita.calculaValorReceita();
+		}
+		return valor;
+	}
+
+	public List<Receita> metodoDoAlergico(List<Ingrediente> alergicos){
+		List<Receita> livres = new ArrayList<>();
+		if(!alergicos.isEmpty()){
+			boolean valido = true;
+			for (Receita receita : receitas) {
+				List<Ingrediente> ingredientes = receita.getIngredientes();
+				for (Ingrediente ingrediente : ingredientes) {
+					for (Ingrediente alergico : alergicos) {
+						if(alergico.equals(ingrediente)) valido = false;
+					}
+				}
+				if(valido){ 
+					livres.add(receita);
+				}
+				
+				valido = true;
+			}
+			return livres;
+		}
+		else System.out.println("\nLista de ingredientes alérgicos está vazia");
+		return receitas;
+				
+	}		
+	
 }

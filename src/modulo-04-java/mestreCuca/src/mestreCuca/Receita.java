@@ -27,4 +27,30 @@ public class Receita {
 	public String getNome() {
 		return nome;
 	}
+
+	public double calculaValorReceita(){
+		double valor = 0.0;
+		
+		for (Ingrediente ingrediente : ingredientes) {
+			valor+=ingrediente.getPreco();
+		}
+		valor = (valor*100)/100;
+		System.out.println("\nValor total da receita '" +this.getNome() +"': R$ "+valor);
+		return valor;
+	}
+
+	public void adicionaIngrediente(Ingrediente ingrediente){
+		if(validaIngrediente(ingrediente)){
+			ingredientes.add(ingrediente);
+		}
+	}
+	private boolean validaIngrediente(Ingrediente ingrediente) {
+		if(ingrediente != null &&
+		   ingrediente.getNome() != "" &&
+		   ingrediente.getPreco() > 0)	return true;
+		
+		return false;
+	}
+
+	
 }
