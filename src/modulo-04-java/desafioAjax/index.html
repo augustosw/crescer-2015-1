@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Desafio do Marlon</title>
+  <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+</head>
+<body>
+  <button id="btn" style="padding: 20px; background: red; color: #fff">Postar</button>
+  <script>
+    $(function(){
+      $('#btn').click(function(){
+       executaAjax();     
+      })
+    })
+    function executaAjax(){
+	var dados = {nome: 'Augusto'}
+	var novo = JSON.stringfy(dados)
+       $.ajax({
+          url: 'http://illuminati.instaweb.com.br:6789/autentica',
+          type: 'POST',
+		  contentType: 'application/json',
+          dataType: 'json',
+		  data: novo
+        }).done(function(resposta){
+			console.log(resposta);
+		})
+    }
+	
+	
+	//POST
+	$.ajax({
+          url: 'http://illuminati.instaweb.com.br:6789/exercicios?token=6abf2fdbe2d5',
+          type: 'POST',
+		  contentType: 'application/json',
+          dataType: 'json',
+		  data: resp
+        }).done(function(resposta){
+			objeto = resposta
+		})
+	var objeto = JSON.parse(objeto);
+	var soma = 0;
+	var array = objeto.dados;
+	
+	//GET
+	$.ajax({
+          url: 'http://illuminati.instaweb.com.br:6789/exercicios?token=6abf2fdbe2d5',
+          type: 'GET',
+		  contentType: 'application/json',
+        }).done(function(resposta){
+			objeto = resposta
+		})
+	
+  </script>
+</body>
+</html>
