@@ -6,15 +6,13 @@ public class Ingrediente {
 	Medida medida;
 	double preco;
 	
-	{
-		medida = Medida.G;
-	}
+
 	
 	public Ingrediente(String nome, double quantidade, Medida medida, double preco) {
-		this.nome = nome;
-		this.quantidade = quantidade;
-		this.medida = medida;
-		this.preco = preco;
+		this.nome = nome != null ? nome : "Sem Nome";
+		this.quantidade = quantidade < 0 ? 1.0 : quantidade;
+		this.medida = medida != null ? medida : Medida.G;
+		this.preco = preco < 0 ? 1.0 : preco;
 	}
 
 	public Medida getMedida() {

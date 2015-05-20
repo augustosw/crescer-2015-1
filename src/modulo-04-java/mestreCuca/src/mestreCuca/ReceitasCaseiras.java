@@ -43,9 +43,9 @@ public class ReceitasCaseiras implements LivroReceitas {
 	}
 	
 	public Receita buscaReceitaPeloNome(String nome){
-		for (int i = 0; i < receitas.size(); i++) {
-			if(receitas.get(i).getNome() == nome){
-				return receitas.get(i);				
+		for (Receita receita : receitas) {
+			if(receita.getNome() == nome){
+				return receita;				
 			}
 		}
 		throw new ReceitaNaoEncontradaException();

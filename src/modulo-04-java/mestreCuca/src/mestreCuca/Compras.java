@@ -53,7 +53,8 @@ public class Compras {
 			double qtde = ingrediente.getQuantidade();
 			String medida = ingrediente.getMedida().getNome();
 			String nome = ingrediente.getNome();
-			System.out.println(qtde +" " +medida +" de " +nome);
+			String complemento = qtde > 1 ? "s" : "";
+			System.out.println(qtde +" " +medida +complemento +" de " +nome);
 		}
 	}
 	
