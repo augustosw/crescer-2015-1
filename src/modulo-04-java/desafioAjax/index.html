@@ -6,51 +6,70 @@
   <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
 </head>
 <body>
-  <button id="btn" style="padding: 20px; background: red; color: #fff">Postar</button>
+  <button id="pt" style="padding: 20px; background: red; color: #fff">POST</button>
+  <button id="gt" style="padding: 20px; background: red; color: #fff">GET</button>
+  
   <script>
     $(function(){
-      $('#btn').click(function(){
-       executaAjax();     
+      $('#pt').click(function(){
+       post();     
       })
     })
-    function executaAjax(){
-	var dados = {nome: 'Augusto'}
-	var novo = JSON.stringfy(dados)
-       $.ajax({
-          url: 'http://illuminati.instaweb.com.br:6789/autentica',
-          type: 'POST',
-		  contentType: 'application/json',
-          dataType: 'json',
-		  data: novo
-        }).done(function(resposta){
-			console.log(resposta);
+	$(function(){
+		$('#gt').click(function(){
+			get();
 		})
-    }
-	
+	})
 	
 	//POST
-	$.ajax({
-          url: 'http://illuminati.instaweb.com.br:6789/exercicios?token=6abf2fdbe2d5',
-          type: 'POST',
-		  contentType: 'application/json',
-          dataType: 'json',
-		  data: resp
-        }).done(function(resposta){
-			objeto = resposta
-		})
+	function post(){
+		$.ajax({
+			  url: 'http://illuminati.instaweb.com.br:6789/exercicios?token=6abf2fdbe2d5',
+			  type: 'POST',
+			  contentType: 'application/json',
+			  dataType: 'json',
+			  data: resp
+			}).done(function(resposta){
+				objeto = resposta
+			})
+	}
 	var objeto = JSON.parse(objeto);
 	var soma = 0;
 	var array = objeto.dados;
 	
 	//GET
-	$.ajax({
-          url: 'http://illuminati.instaweb.com.br:6789/exercicios?token=6abf2fdbe2d5',
-          type: 'GET',
-		  contentType: 'application/json',
-        }).done(function(resposta){
-			objeto = resposta
-		})
+	function get(){
+		$.ajax({
+			  url: 'http://illuminati.instaweb.com.br:6789/exercicios?token=6abf2fdbe2d5',
+			  type: 'GET',
+			  contentType: 'application/json',
+			}).done(function(resposta){
+				objeto = resposta
+			})
+	}
+
 	
+		//Exercicio 5
+		soma = 0
+		array.forEach(function(num){
+			var aux = num % 3 === 0 ? num : 0;
+			soma = soma + aux;
+		})
+		
+		//Exercicio 6
+		soma = 0
+		array.forEach(function(num){
+			aux = num.data;
+			soma = soma + aux;
+		})
+		
+		//Exercicio 7
+		soma = 0;
+		array.forEach(function(num){
+			aux = num.status === "INCLUIDO";
+			soma = soma + aux;
+		})
+	}
   </script>
 </body>
 </html>
