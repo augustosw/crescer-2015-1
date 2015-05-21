@@ -9,6 +9,10 @@ public class Receita {
 	List<Ingrediente> ingredientes = new ArrayList<>();
 	List<Instrucao> instrucoes = new ArrayList<>();
 
+	public Receita() {
+		
+	}
+	
 	public Receita(String nome, List<Ingrediente> ingredientes, List<Instrucao> instrucoes) {
 		this.nome = nome != null ? nome : "Sem Nome";
 		this.ingredientes = ingredientes != null ? ingredientes : new ArrayList<>();

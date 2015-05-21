@@ -8,6 +8,9 @@ public class Ingrediente {
 	
 
 	
+	public Ingrediente() {
+		
+	}
 	public Ingrediente(String nome, double quantidade, Medida medida, double preco) {
 		this.nome = nome != null ? nome : "Sem Nome";
 		this.quantidade = quantidade < 0 ? 1.0 : quantidade;

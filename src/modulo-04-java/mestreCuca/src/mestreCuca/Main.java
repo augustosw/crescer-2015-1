@@ -69,5 +69,10 @@ public class Main {
 			System.out.println(receita.getNome());
 		}
 		
+		String caminho = "C:\\Users\\projetocrescer\\GitHub - Augusto\\src\\modulo-04-java\\mestreCuca\\";		
+		LivroReceitasJson livro = new LivroReceitasJson("Livro novo", caminho);
+//		livro.inserir(outroFrango);
+//		livro.inserir(sanduiche);
+//		livro.inserir(bolo);
 	}
 }
