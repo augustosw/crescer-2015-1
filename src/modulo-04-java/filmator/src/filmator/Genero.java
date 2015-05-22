@@ -10,7 +10,11 @@ public enum Genero {
 	
  private String nome;
 	
-	private Genero(String nome){
+	private Genero() {
+		
+	}
+ 
+ 	private Genero(String nome){
 		this.nome = nome;
 	}
 	
@@ -18,5 +22,8 @@ public enum Genero {
 		return nome;
 	}
 
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
 
 }
