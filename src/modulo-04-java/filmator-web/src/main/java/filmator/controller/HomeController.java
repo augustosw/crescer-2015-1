@@ -14,7 +14,7 @@ import filmator.model.Genero;
 
 @Controller
 public class HomeController {
-
+	FilmeDao dao = new FilmeDao();
 	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(Model model) {
@@ -26,10 +26,15 @@ public class HomeController {
 	
 	@RequestMapping(value = "/salvar", method = RequestMethod.POST)
 	public String salvar(Filme filme, Model model){
-		FilmeDao dao = new FilmeDao();
 		System.out.println("Nome: "+filme.getNome());
 		System.out.println("Genero: " +filme.getGenero());
-		model.addAttribute("mensagem", "Salvou");
+		if(dao.validaFilme(filme)){
+			dao.adicionaFilme(filme);
+			model.addAttribute("mensagem", "Filme " +filme.getNome() +" foi salvo");
+		}
+		else{
+			model.addAttribute("mensagem", "Cadastro com erros");
+		}
 		model.addAttribute("filmes", dao.buscaTodosFilmes());
 		model.addAttribute("generos", Genero.values());
 		return "nomeDoArquivo";
