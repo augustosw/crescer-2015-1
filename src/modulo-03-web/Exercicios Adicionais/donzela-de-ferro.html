@@ -1,0 +1,31 @@
+<html>
+	<script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+	<head>	
+		<meta charset="utf-8">
+		<title>Exercício 1</title>		
+	</head>
+	<style>
+	lista{
+		display: inline-block;
+		padding:3px;
+		margin: 3px;
+	}
+	</style>
+	<body onload="pegaAlbuns()">
+		<div id="imagem"></div>
+	</body>
+	<script>
+	var pegaAlbuns = function(){
+		$.ajax({
+			url: 'https://api.spotify.com/v1/artists/6mdiAmATAx73kdxrNrnlao/albums?limit=50',
+			type: 'GET', 			
+			contentType : 'application/json',
+			dataType: 'json'				
+		}).done(function(resultado){			
+			resultado.items.forEach(function(item){						
+				$('#imagem').append('<lista><h2>'+item.name+'<img src='+item.images[1].url+'></lista>');
+			})
+		});
+	};
+	</script>
+</html>

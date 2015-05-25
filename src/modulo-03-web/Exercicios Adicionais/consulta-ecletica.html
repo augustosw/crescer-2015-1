@@ -1,0 +1,54 @@
+<html>
+	<script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+	<head>	
+		<meta charset="utf-8">
+		<title>Exercício 2</title>		
+	</head>
+	<style>
+	lista{
+		display: inline-block;
+		padding:3px;
+		margin: 3px;
+	}
+	</style>
+	<body>
+		<form>
+			<label>Digite o nome do artista ou banda:</label>
+			<input type="search" id="txt" name="texto">
+			<input type="button" value="Buscar" id="busca" onclick="buscaArtista($('input[name=texto]').val())">
+			<div id="imagem"></div>
+		</form>
+	</body>
+	<script>
+	var pegaAlbuns = function(id, banda){
+		var token = id+'/albums?limit=10';
+		$.ajax({
+			url: token,
+			type: 'GET', 			
+			contentType : 'application/json',
+			dataType: 'json'				
+		}).done(function(resultado){			
+			resultado.items.forEach(function(item){						
+				$('#imagem').append('<lista><h3>'+item.name+' - '+banda+'</h3><img width="300px"; height="300px"; src='+item.images[0].url+'></lista>');
+			})
+		});
+	};
+	
+	var buscaArtista = function(artista){
+		$('#imagem').empty();
+		var url = 'https://api.spotify.com/v1/search?q='+artista+'&type=artist';
+		$.ajax({
+			url: url,
+			type: 'GET', 			
+			contentType : 'application/json',
+			dataType: 'json'		
+		}).done(function(resultado){
+			resultado.artists.items.forEach(function(item){	
+				var url = resultado.artists.items[0].href;
+				var banda = resultado.artists.items[0].name;
+				pegaAlbuns(url, banda);
+			})
+		});
+	};	
+	</script>
+</html>
