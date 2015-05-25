@@ -1,13 +1,11 @@
 <html>
+	<head>
+		<meta charset="utf-8">
+		<title>Cadastro de Filmes</title>
+	</head>
 	<body>
-		<marquee><img src="/img/dogao.gif"></marquee>
-		<h1>{{mensagem}}</h1>
-		
-		<ul>
-			{{#filmes}}
-			<li>{{nome}}</li>
-			{{/filmes}}
-		</ul>
+		<h1>Cadastro de Filmes
+		<h3>{{mensagem}}</h3>
 		
 		<form action="/salvar" method="post">
 				<div style="height: 50px;">
@@ -35,37 +33,39 @@
 				</div>
 				
 				<div style="height: 50px;">
-				<label><Imagem do Filme</label>
-				<input name="imagem" type="file" accept=".jpg,.png" onchange="return validaExt()">
+				<label>Imagem do Filme:</label>
+				<input name="imagem">
 				</div>
 				
 				<div style="height: 50px;">
 				<button>Salvar</button>
 				</div>
-		</form>
+		</form>	
+			
+		<ul>
+			<h2>Filmes:</h2>
+			
+			<table cellpadding="15" border="2" style="border-collapse: collapse; text-align: center;">
+				<thead>
+					<th>ID do Filme</th>
+					<th>Nome</th>
+					<th>Genero</th>	
+					<th>Ano de Lançamento</th>			
+				</thead>
+				<tbody>
+					{{#filmes}}
+					<tr>
+						<td>{{idFilme}}</td>
+						<td>{{nome}}</td>
+						<td>{{genero.descricao}}</td>
+						<td>{{ano_lancamento}}</td>
+					</tr>
+					{{/filmes}}
+				</tbody>			
+			</table>
+		</ul>
 		
 		<script>
-			function validaExt(){
-				var nomeArquivo = document.getElementsByName('avatar')[0].value;
-				var valida = false;
-				var extensoesValidas = ['.jpg', '.jpeg', '.png'];
-				for (var i = 0, len = extensoesValidas.lenght; i< len; i++;){
-					var ext = extensoesValidas[i];
-					var apenasExtensao = nomeArquivo.substring(nomeArquivo.lenght-ext.lenght, nomeArquivo.lenght).toLowerCase();
-					
-					if(apenasExtensao === ext.toLowerCase()){
-						valida = true;
-						break;
-					}
-				}
-				
-				if(valida === false){
-					alert('Extensão Inválida!!');
-					inputFile.value = null;
-				}
-				
-				return valida;
-			}
 		</script>
 		
 	</body>
