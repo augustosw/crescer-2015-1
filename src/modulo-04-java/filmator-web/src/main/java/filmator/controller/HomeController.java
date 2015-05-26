@@ -24,10 +24,15 @@ public class HomeController {
 	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(Model model) {
+		return "home";
+	}
+	
+	@RequestMapping(value = "/cadastro", method = RequestMethod.GET)
+	public String cadastro(Model model){
 		model.addAttribute("generos", Genero.values());
-		model.addAttribute("mensagem", "");
 		model.addAttribute("filmes", dao.buscaTodosFilmes());
-		return "nomeDoArquivo";
+		model.addAttribute("mensagem", "Preencha o formulário para cadastrar um filme");
+		return "cadastro";
 	}
 	
 	@RequestMapping(value = "/salvar", method = RequestMethod.POST)
@@ -43,7 +48,7 @@ public class HomeController {
 		}
 		model.addAttribute("filmes", dao.buscaTodosFilmes());
 		model.addAttribute("generos", Genero.values());
-		return "nomeDoArquivo";
+		return "cadastro";
 	}
 	
 	@ResponseBody
