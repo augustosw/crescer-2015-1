@@ -21,9 +21,11 @@ import filmator.model.Genero;
 public class HomeController {
 	@Inject
 	private FilmeDao dao;
+	private String msg = "";
 	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(Model model) {
+		msg = "";
 		return "home";
 	}
 	
@@ -31,24 +33,27 @@ public class HomeController {
 	public String cadastro(Model model){
 		model.addAttribute("generos", Genero.values());
 		model.addAttribute("filmes", dao.buscaTodosFilmes());
-		model.addAttribute("mensagem", "Preencha o formulário para cadastrar um filme");
+		model.addAttribute("mensagem", msg);
 		return "cadastro";
 	}
 	
 	@RequestMapping(value = "/salvar", method = RequestMethod.POST)
 	public String salvar(Filme filme, Model model){
-		System.out.println("Nome: "+filme.getNome());
-		System.out.println("Genero: " +filme.getGenero());
 		if(dao.validaFilme(filme)){
 			dao.inserir(filme);
-			model.addAttribute("mensagem", "Filme '" +filme.getNome() +"' foi salvo");
+			msg = "Filme '" +filme.getNome() +"' foi salvo";
+			model.addAttribute("mensagem", msg);
+			System.out.println("Nome: "+filme.getNome());
+			System.out.println("Genero: " +filme.getGenero());
 		}
 		else{
-			model.addAttribute("mensagem", "Cadastro com erros");
+			
+			msg = "Cadastro com erros \n"+dao.getErros();
+			model.addAttribute("mensagem", msg);
 		}
 		model.addAttribute("filmes", dao.buscaTodosFilmes());
 		model.addAttribute("generos", Genero.values());
-		return "cadastro";
+		return "redirect:/cadastro";
 	}
 	
 	@ResponseBody

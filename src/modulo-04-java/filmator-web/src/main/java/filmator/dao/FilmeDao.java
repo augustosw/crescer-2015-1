@@ -38,9 +38,31 @@ public class FilmeDao {
 			return filme;
 		});	
 	}
-
-	public boolean validaFilme(Filme filme) {
-		return true;
+	
+	public List<Filme> buscaFilmesPorNome(String nomeBusca){
+		return jdbcTemplate.query("SELECT idFilme, nome, genero, ano_lancamento FROM Filme WHERE nome like ?", (ResultSet rs, int rowNum) -> {	
+			int idFilme = rs.getInt("idFilme");
+			String nome = rs.getString("nome");
+			Genero genero = Genero.valueOf(rs.getString("genero"));
+			int ano_lancamento = rs.getInt("ano_lancamento");
+			Filme filme = new Filme(idFilme, nome, genero, ano_lancamento);
+			return filme;
+		}, nomeBusca + "%");	
 	}
 	
+	
+	private String erros = "";
+	public boolean validaFilme(Filme filme) {
+		erros = "";
+		if(filme.getNome() == null) erros += "-Nome Nulo! ";
+		if(filme.getNome().trim() == "") erros += "-Nome Vazio! ";
+		if(filme.getAno() < 1930) erros += "-Ano Inválido (Minimo: 1930) ";
+		if(filme.getSinopse().trim() == "") erros += "-Sinopse Vazia! ";
+		
+		if(erros == "")return true;
+		return false;
+	}
+	public String getErros() {
+		return erros;
+	}	
 }

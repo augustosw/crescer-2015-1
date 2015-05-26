@@ -1,24 +1,31 @@
 <html>
 	<head>
 		<meta charset="utf-8">
+		<link rel="stylesheet" type="text/css" href="css/home.css">
 		<title>Site Foda de Filmes</title>
-		
-		<style>
-			.menuLateral{
-				width: 33.33%;
-				height: 100vh;
-				float: left;
-			}
-		</style>
-		
 	</head>
 	<body>
-		<h1>Banco de Filmes Online<h1>
-		<br><br>
-		<h3>Seja bem-vindo!</h3>
+	<div id="menu">
+		<ul>
+			<li>
+				<form action="/busca" method="GET" class="busca">
+					<input placeholder="Busque seu filme">
+					<button>Buscar</button>
+				</form>
+			</li>
+			<li><a href="/filmes">Lista de Filmes</a></li>
+			<li><a href="/cadastro">Área Administrativa</a></li>
+		</ul>
+	</div>
 		
-		<form action="/cadastro" method="get" class="menuLateral">
-			<button>Cadastro de Filmes</button>
-		</from>
+		<div id="centro">
+			
+			<h1>Banco de Filmes Online<h1>
+			<br>
+			<h3>Seja bem-vindo!</h3>
+			<h4>Por favor, selecione uma das opções no menu superior para iniciar sua navegaçaõ</h4>
+			
+		</div>
+		
 	</body>
 </html>

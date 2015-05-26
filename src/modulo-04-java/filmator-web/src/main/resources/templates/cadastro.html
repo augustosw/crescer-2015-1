@@ -1,6 +1,7 @@
 <html>
 	<head>
 		<meta charset="utf-8">
+		<script src="../css/bootstrap-theme.min.css"></script>
 		<title>Cadastro de Filmes</title>
 		
 		<style>
@@ -9,47 +10,58 @@
     			top: 0;
     			right: 3;
 			}
+			
+			.fundo{
+				background-color: black;
+			}
+			
+			.font{
+				color: white;
+			}
+			
 		</style>
 	</head>
 	<body>
 		<h1>Cadastro de Filmes
-		<h3>{{mensagem}}</h3>
 		
-		<form action="/salvar" method="post">
-				<div style="height: 50px;">
-				<label>Nome:</label>
-				<input name="nome">
-				</div>
-				
-				<div style="height: 50px;">
-				<label>Genero:</label>
-				<select name="genero">
-					{{#generos}}
-					<option value="{{.}}">{{descricao}}</option>
-					{{/generos}}
-				</select>
-				</div>
-				
-				<div style="height: 50px;">
-				<label>Ano de Lançamento:</label>
-				<input name="ano" type="number" value="2015">
-				</div>
-				
-				<div style="height: 50px;">
-				<label>Sinopse:</label>
-				<input name="sinopse">
-				</div>
-				
-				<div style="height: 50px;">
-				<label>Imagem do Filme:</label>
-				<input name="imagem">
-				</div>
-				
-				<div style="height: 50px;">
-				<button>Salvar</button>
-				</div>
-		</form>	
-			
+		<h3>Preencha o formulário para cadastrar um filme</h3>
+		<br>
+		<h3 style="color:red">{{mensagem}}</h3>
+		<br>
+		<div  style="float: center;">
+			<form action="/salvar" method="post">
+				<b>
+					<div style="height: 50px;">
+					<input name="nome" placeholder="Nome do Filme">
+					</div>
+					
+					<div style="height: 50px;">
+					<select name="genero">
+					    <option value="COMEDIA">Genero</option>
+						{{#generos}}
+						<option value="{{.}}">{{descricao}}</option>
+						{{/generos}}
+					</select>
+					</div>
+					
+					<div style="height: 50px;">
+					<input name="ano" type="number" value="2015" placeholder="Ano de Lançamento">
+					</div>
+					
+					<div style="height: 50px;">
+					<input name="sinopse" placeholder="Sinopse">
+					</div>
+					
+					<div style="height: 50px;">
+					<input name="imagem" placeholder="URL da imagem do Filme:" >
+					</div>
+					
+					<div style="height: 50px;">
+					<button>Salvar</button>
+					</div>
+				</b>
+			</form>	
+		<div>
 		<ul class="tabela">
 			<h2>Filmes:</h2>
 			<table cellpadding="15" border="2" style="border-collapse: collapse; text-align: center;">
