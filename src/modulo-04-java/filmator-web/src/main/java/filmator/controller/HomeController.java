@@ -1,5 +1,6 @@
 package filmator.controller;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -14,31 +15,97 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import filmator.dao.FilmeDao;
+import filmator.dao.UsuarioDao;
 import filmator.model.Filme;
 import filmator.model.Genero;
+import filmator.model.Usuario;
 
 @Controller
 public class HomeController {
 	@Inject
 	private FilmeDao dao;
+	@Inject
+	private UsuarioDao udao;
 	private String msg = "";
+	
 	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(Model model) {
-		msg = "";
+		model.addAttribute("mensagem", msg);
 		return "home";
 	}
 	
-	@RequestMapping(value = "/cadastro", method = RequestMethod.GET)
-	public String cadastro(Model model){
+	@RequestMapping(value = "/inicialAdm", method = RequestMethod.GET)
+	public String inicial(Model model) {
+		return "inicialAdm";
+	}
+	
+	@RequestMapping(value="/logar", method= RequestMethod.POST)
+	public String logar(Model model, @RequestParam("usuario") String login, @RequestParam("senha") String senha){
+		List<Usuario> usuarios = udao.logaUsuario(login, senha);
+		Usuario usuario = null;
+		if(usuarios.size() > 0) usuario = usuarios.get(0);
+		if(usuario == null) return "/erro";
+		else if(usuario.getAdm().equals("T")) return "redirect:/cadastroFilme";
+		return "redirect:/filmes";
+	}
+	@RequestMapping(value="/logarAdm", method= RequestMethod.POST)
+	public String logarAdm(Model model, @RequestParam("usuario") String login, @RequestParam("senha") String senha){
+		List<Usuario> usuarios = udao.logaUsuario(login, senha);
+		Usuario usuario = null;
+		if(usuarios.size() > 0) usuario = usuarios.get(0);
+		if(usuario.getAdm().equals("T")) return "redirect:/inicialAdm";
+		return "redirect:/erro";
+	}
+	@RequestMapping(value="/erro", method= RequestMethod.GET)
+	public String erro(Model model){
+		model.addAttribute("mensagem", "Login inválido!");
+		return "redirect:/";
+	}
+	
+	@RequestMapping(value = "/cadastroFilme", method = RequestMethod.GET)
+	public String cadastroFilme(Model model){
 		model.addAttribute("generos", Genero.values());
 		model.addAttribute("filmes", dao.buscaTodosFilmes());
 		model.addAttribute("mensagem", msg);
-		return "cadastro";
+		msg="";
+		return "cadastroFilme";
 	}
 	
-	@RequestMapping(value = "/salvar", method = RequestMethod.POST)
-	public String salvar(Filme filme, Model model){
+	@RequestMapping(value = "/cadastroUsuario", method = RequestMethod.GET)
+	public String cadastroUsuario(Model model){
+		model.addAttribute("mensagem", msg);
+		msg="";
+		return "cadastroUsuario";		
+	}
+	
+	@RequestMapping(value = "/busca", method = RequestMethod.GET)
+	public String busca(Model model, @RequestParam("busca") String busca){
+		model.addAttribute("filmes", dao.buscaFilmesPorNome(busca));
+		model.addAttribute("busca", busca);
+		return "busca";
+	}
+	@RequestMapping(value = "/buscaAdm", method = RequestMethod.GET)
+	public String buscaAdm(Model model, @RequestParam("busca") String busca){
+		model.addAttribute("filmes", dao.buscaFilmesPorNome(busca));
+		model.addAttribute("busca", busca);
+		return "buscaAdm";
+	}
+	
+	@RequestMapping(value = "/filmes", method = RequestMethod.GET)
+	public String busca(Model model){
+		model.addAttribute("filmes", dao.buscaTodosFilmes());
+		return "filmes";
+	}
+	@RequestMapping(value = "/filmesAdm", method = RequestMethod.GET)
+	public String filmesAdm(Model model){
+		model.addAttribute("filmes", dao.buscaTodosFilmes());
+		return "filmesAdm";
+	}
+	
+	
+	@RequestMapping(value = "/salvarFilme", method = RequestMethod.POST)
+	public String salvarFilme(Filme filme, Model model){
 		if(dao.validaFilme(filme)){
 			dao.inserir(filme);
 			msg = "Filme '" +filme.getNome() +"' foi salvo";
@@ -53,14 +120,47 @@ public class HomeController {
 		}
 		model.addAttribute("filmes", dao.buscaTodosFilmes());
 		model.addAttribute("generos", Genero.values());
-		return "redirect:/cadastro";
+		return "redirect:/cadastroFilme";
+	}
+	
+	@RequestMapping(value = "/salvarUsuario", method= RequestMethod.POST)
+	public String salvarUsuario(@RequestParam("login")String inputLogin, @RequestParam("senha")String inputSenha, Model model){
+		msg = "";
+		if(udao.validaUsuario(inputLogin, inputSenha)){
+			udao.inserirUsuario(inputLogin, inputSenha);
+			msg = "Usuário inserido com sucesso! Faça login para continuar!";
+			model.addAttribute("mensagem", msg);
+			return "redirect:/";
+		}
+		else{ 
+			msg = "Cadastro com erros: "+udao.getMsg();
+			model.addAttribute("mensagem", msg);
+			return "redirect:/cadastroUsuario";
+		}
+		
+	}
+	
+	@RequestMapping(value = "/login", method = RequestMethod.GET)
+	public String login(Model model){	
+		return "login";
+	}
+	
+	@RequestMapping(value="/excluirFilme", method = RequestMethod.GET)
+	public String exclui(Model model, @RequestParam("idFilme")int idFilme){
+		dao.excluir(idFilme);
+		model.addAttribute("filmes", dao.buscaTodosFilmes());
+		return "redirect:/filmes";
 	}
 	
 	@ResponseBody
-	@RequestMapping(value = "/inserir", method = RequestMethod.GET)
-	public List<Filme> inserir(Model model, @RequestParam String nome) {
-		dao.inserir(new Filme(nome));
-		return dao.buscaTodosFilmes();
+	@RequestMapping(value = "/melhores", method = RequestMethod.GET)
+	public List<Filme> inserir(Model model) {
+		List<Filme> filmes = new ArrayList<>();
+		filmes.add(new Filme("ahsha"));
+		filmes.add(new Filme("haa"));
+		filmes.add(new Filme("um filme"));
+		
+		return filmes;
 	}
 	
 }

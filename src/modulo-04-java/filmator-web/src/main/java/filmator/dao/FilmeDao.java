@@ -1,6 +1,5 @@
 package filmator.dao;
 
-import java.io.File;
 import java.sql.ResultSet;
 import java.util.List;
 
@@ -27,6 +26,10 @@ public class FilmeDao {
 		String imagem = filme.getImagem();
 		jdbcTemplate.update("INSERT INTO Filme (nome, genero, ano_lancamento, sinopse, imagem) VALUES (?, ?, ?, ?, ?)", nome, genero, ano_lancamento, sinopse, imagem);
 	}
+	
+	public void excluir(int idFilme){
+		jdbcTemplate.update("DELETE FROM Filme WHERE idFilme = ?", idFilme);
+	}
 
 	public List<Filme> buscaTodosFilmes(){
 		return jdbcTemplate.query("SELECT idFilme, nome, genero, ano_lancamento FROM Filme", (ResultSet rs, int rowNum) -> {	
@@ -40,14 +43,15 @@ public class FilmeDao {
 	}
 	
 	public List<Filme> buscaFilmesPorNome(String nomeBusca){
-		return jdbcTemplate.query("SELECT idFilme, nome, genero, ano_lancamento FROM Filme WHERE nome like ?", (ResultSet rs, int rowNum) -> {	
+		String plus = "%"+nomeBusca+"%";
+		return jdbcTemplate.query("SELECT idFilme, nome, genero, ano_lancamento FROM Filme WHERE lower (nome) like lower (?)", (ResultSet rs, int rowNum) -> {	
 			int idFilme = rs.getInt("idFilme");
 			String nome = rs.getString("nome");
 			Genero genero = Genero.valueOf(rs.getString("genero"));
 			int ano_lancamento = rs.getInt("ano_lancamento");
 			Filme filme = new Filme(idFilme, nome, genero, ano_lancamento);
 			return filme;
-		}, nomeBusca + "%");	
+		}, plus);	
 	}
 	
 	

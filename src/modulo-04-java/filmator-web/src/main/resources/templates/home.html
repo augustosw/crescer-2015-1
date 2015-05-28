@@ -1,29 +1,22 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<link rel="stylesheet" type="text/css" href="css/home.css">
+		<link rel="stylesheet" type="text/css" href="/css/home.css">
 		<title>Site Foda de Filmes</title>
 	</head>
-	<body>
-	<div id="menu">
-		<ul>
-			<li>
-				<form action="/busca" method="GET" class="busca">
-					<input placeholder="Busque seu filme">
-					<button>Buscar</button>
-				</form>
-			</li>
-			<li><a href="/filmes">Lista de Filmes</a></li>
-			<li><a href="/cadastro">Área Administrativa</a></li>
-		</ul>
-	</div>
-		
+	<body>		
 		<div id="centro">
 			
-			<h1>Banco de Filmes Online<h1>
-			<br>
+			<h1>Filmator-Web<h1>
 			<h3>Seja bem-vindo!</h3>
-			<h4>Por favor, selecione uma das opções no menu superior para iniciar sua navegaçaõ</h4>
+			<br>
+			<h3 style="color:red">{{mensagem}}</h3>
+			<form action="/logar" method="POST">
+				<input name="usuario" placeholder="Usuário" class="inputLogin"><br><br>
+				<input type="password" name="senha" placeholder="Senha" class="inputLogin"><br><br>
+				<button class="botao entrar"><b>Entrar</b></button><br><br>
+				<a href="/cadastroUsuario">Cadastre-se agora!</a>
+			</form>
 			
 		</div>
 		

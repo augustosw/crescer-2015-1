@@ -1,0 +1,35 @@
+<html>
+	<head>
+		<meta charset="utf-8">
+		<link rel="stylesheet" type="text/css" href="/css/home.css">
+		<title>Cadastro de Filmes</title>
+		
+	</head>
+	<body>
+		<div id="cadastro">
+			<h1>Cadastro de Usuario</1>
+			
+			<h3>Preencha o formulário para se cadastrar </h3>
+			<br>
+			<h3 style="color:red">{{mensagem}}</h3>
+			<br>
+			<form action="/salvarUsuario" method="POST">
+				<b>
+					<div style="height: 50px;">
+						<input name="login" placeholder="Usuario">
+					</div>
+
+					<div style="height: 50px;">
+					<input name="senha" type="password" placeholder="Senha" >
+					</div>
+					
+					<div style="height: 50px;">
+					<button class="botao">Salvar</button>
+					</div>
+				</b>
+			</form>	
+		</div>
+		
+	</body>
+</html>
+

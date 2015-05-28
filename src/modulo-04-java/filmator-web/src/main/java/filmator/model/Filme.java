@@ -43,10 +43,11 @@ public class Filme {
 		return sinopse;
 	}
 	public String getDescricao(){
-		return genero.getDescricao();
+		return genero != null ? genero.getDescricao() : null;
 	}
-	
-	
+	public int getIdFilme() {
+		return idFilme;
+	}
 	
 	public void setNome(String nome) {
 		this.nome = nome;

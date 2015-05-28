@@ -1,0 +1,45 @@
+<html>
+	<head>
+		<meta charset="utf-8">
+		<link rel="stylesheet" type="text/css" href="/css/home.css">
+		<title>Site Foda de Filmes</title>
+	</head>
+	<body>
+	<div id="menu">
+		<ul>
+			<li>
+				<form action="/busca" method="GET" class="busca">
+					<input name="busca"  placeholder="Busque seu filme" style="border-radius: 15px;">
+					<button class="botao">Buscar</button>
+				</form>
+			</li>
+			<li><a href="/">Home</a><li>
+			<li><a href="/filmes">Lista de Filmes</a></li>
+		  </ul>
+	</div>
+		
+		<ul>
+			<h2>Filmes:</h2>
+			<table cellpadding="15" border="0" style="background-color: #FAFAFA;text-align: center;">
+				<thead>
+					<th>ID do Filme</th>
+					<th>Nome</th>
+					<th>Genero</th>	
+					<th>Ano de Lançamento</th>
+					<th>Avaliação</th>			
+				</thead>
+				<tbody>
+					{{#filmes}}
+					<tr>
+						<td>{{idFilme}}</td>
+						<td>{{nome}}</td>
+						<td>{{genero.descricao}}</td>
+						<td>{{ano_lancamento}}</td>
+					</tr>
+					{{/filmes}}
+				</tbody>			
+			</table>
+		</ul>
+		
+	</body>
+</html>
