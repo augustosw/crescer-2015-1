@@ -17,11 +17,13 @@ public class UsuarioDao {
 	private JdbcTemplate jdbcTemplate;
 	
 	public List<Usuario> logaUsuario(String inputLogin, String inputSenha){
-		return jdbcTemplate.query("SELECT login, admin FROM Usuario WHERE login = ? AND senha = ?", (ResultSet rs, int rowNum) -> {	
+		return jdbcTemplate.query("SELECT idUsuario, login, admin FROM Usuario WHERE login = ? AND senha = ?", (ResultSet rs, int rowNum) -> {	
 			String logs = rs.getString("login");
 			String adm = rs.getString("admin");
+			int id = rs.getInt("idUsuario"); 
 			Usuario usuario = new Usuario(logs);
 			usuario.setAdm(adm);
+			usuario.setIdUsuario(id);
 			return usuario;
 		}, inputLogin, inputSenha);	
 	}

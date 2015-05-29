@@ -7,19 +7,12 @@
 	</head>
 	<body>
 	<div id="menu">
-			<ul>
-				<li>
-					<form action="/buscaAdm" method="GET" class="busca">
-						<input name="busca" placeholder="Busque seu filme" style="border-radius: 15px;">
-						<button class="botao">Buscar</button>
-					</form>
-				</li>
-				<li><a href="/inicialAdm">Inicial</a><li>
-				<li><a href="/filmesAdm">Área Administrativa</a></li>
-				<li><a href="/cadastroFilme">Cadastro de Filmes</a></li>
-				<li><a href="/">Sair</a></li>
-			  </ul>
-		</div>
+		<ul>
+			{{>menuAdm}}
+	  	</ul>
+	</div>
+		
+		
 		<div id="cadastro">
 			<h1>Cadastro de Filmes
 			
@@ -62,12 +55,12 @@
 		<div>
 		<ul style="position: fixed; right: 2; top: 20;">
 			<h2>Filmes:</h2>
-			<table cellpadding="15" border="2" style="border-collapse: collapse; text-align: center;">
+			<table cellpadding="15" border="0" style="background-color: #FAFAFA;text-align: center;">
 				<thead>
 					<th>ID do Filme</th>
 					<th>Nome</th>
 					<th>Genero</th>	
-					<th>Ano de Lançamento</th>			
+					<th>Ano de Lançamento</th>
 				</thead>
 				<tbody>
 					{{#filmes}}
@@ -79,6 +72,7 @@
 					</tr>
 					{{/filmes}}
 				</tbody>			
+			</table>
 			</table>
 		</ul>
 		

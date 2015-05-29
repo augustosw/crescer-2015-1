@@ -2,8 +2,10 @@
 			body{
 				margin: 0px;
 				background-image: url("../img/direita.jpg");
-				background-size: 100%;
-    			background-position: right top;
+				background-repeat:no-repeat;
+				background-size:cover;
+				background-position:center center;
+				background-attachment: fixed;
 				color: black;
 				font: verdana;
 			}
@@ -76,6 +78,9 @@
 				position: fixed;
 				top: 20;
 				left: 4;
+				background-color: #F5F5F5; 
+				border-radius: 10px; 
+				top: 27px;
 			}
 			
 			#cadastro form{  
@@ -83,6 +88,15 @@
 					border-radio: 10px;
 				}
 			}
+			
+			table, thead{
+				background-color: #A9A9A9;
+			}
+			table, tr:nth-child(even) {
+				    background-color: #FF7256;
+				    border-collapse: collapse;
+				}
+			
 			
 			input:focus {
 				outline: 0;

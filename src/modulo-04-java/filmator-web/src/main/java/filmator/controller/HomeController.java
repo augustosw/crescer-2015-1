@@ -5,6 +5,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpSession;
 
 import org.mockito.InjectMocks;
 import org.springframework.stereotype.Controller;
@@ -14,8 +15,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import filmator.dao.AvaliacaoDao;
 import filmator.dao.FilmeDao;
 import filmator.dao.UsuarioDao;
+import filmator.model.Avaliacao;
 import filmator.model.Filme;
 import filmator.model.Genero;
 import filmator.model.Usuario;
@@ -26,6 +29,8 @@ public class HomeController {
 	private FilmeDao dao;
 	@Inject
 	private UsuarioDao udao;
+	@Inject
+	private AvaliacaoDao adao;
 	private String msg = "";
 	
 	
@@ -41,12 +46,13 @@ public class HomeController {
 	}
 	
 	@RequestMapping(value="/logar", method= RequestMethod.POST)
-	public String logar(Model model, @RequestParam("usuario") String login, @RequestParam("senha") String senha){
+	public String logar(Model model, @RequestParam("usuario") String login, @RequestParam("senha") String senha, HttpSession session){
 		List<Usuario> usuarios = udao.logaUsuario(login, senha);
 		Usuario usuario = null;
 		if(usuarios.size() > 0) usuario = usuarios.get(0);
-		if(usuario == null) return "/erro";
-		else if(usuario.getAdm().equals("T")) return "redirect:/cadastroFilme";
+		if(usuario == null) return "redirect:/erro";
+		session.setAttribute("usuarioLogado", usuario);
+		if(usuario.getAdm().equals("T"))return "redirect:/inicialAdm";
 		return "redirect:/filmes";
 	}
 	@RequestMapping(value="/logarAdm", method= RequestMethod.POST)
@@ -59,7 +65,7 @@ public class HomeController {
 	}
 	@RequestMapping(value="/erro", method= RequestMethod.GET)
 	public String erro(Model model){
-		model.addAttribute("mensagem", "Login inválido!");
+		msg = "Login inválido!";
 		return "redirect:/";
 	}
 	
@@ -150,6 +156,15 @@ public class HomeController {
 		dao.excluir(idFilme);
 		model.addAttribute("filmes", dao.buscaTodosFilmes());
 		return "redirect:/filmes";
+	}
+	
+	@ResponseBody
+	@RequestMapping(value = "/avaliar", method = RequestMethod.GET)
+	public List<Integer> avaliarFilme(Model model, @RequestParam("rating") int rating, @RequestParam("idFilme") int idFilme, HttpSession session){
+		Usuario usuario = (Usuario) session.getAttribute("usuarioLogado");
+		int id = usuario.getIdUsuario();
+		adao.avaliarFilme(idFilme, id, rating);
+		return adao.getNotaFilmeUsuario(idFilme, id);
 	}
 	
 	@ResponseBody

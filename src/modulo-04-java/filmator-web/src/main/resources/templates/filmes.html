@@ -7,15 +7,8 @@
 	<body>
 	<div id="menu">
 		<ul>
-			<li>
-				<form action="/busca" method="GET" class="busca">
-					<input name="busca"  placeholder="Busque seu filme" style="border-radius: 15px;">
-					<button class="botao">Buscar</button>
-				</form>
-			</li>
-			<li><a href="/">Home</a><li>
-			<li><a href="/filmes">Lista de Filmes</a></li>
-		  </ul>
+			{{>menuNormal}}
+		</ul>
 	</div>
 		
 		<ul>
@@ -26,7 +19,7 @@
 					<th>Nome</th>
 					<th>Genero</th>	
 					<th>Ano de Lançamento</th>
-					<th>Avaliação</th>			
+					<th>Nota</th>			
 				</thead>
 				<tbody>
 					{{#filmes}}
@@ -35,6 +28,11 @@
 						<td>{{nome}}</td>
 						<td>{{genero.descricao}}</td>
 						<td>{{ano_lancamento}}</td>
+						<td>1:<input type="radio" name="rating" value=1>
+							2:<input type="radio" name="rating" value=2>
+							3:<input type="radio" name="rating" value=3>
+							4:<input type="radio" name="rating" value=4>
+							5:<input type="radio" name="rating" value=5></td>
 					</tr>
 					{{/filmes}}
 				</tbody>			
