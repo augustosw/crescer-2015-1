@@ -28,7 +28,8 @@ public class FilmeDao {
 	}
 	
 	public void excluir(int idFilme){
-		jdbcTemplate.update("DELETE FROM Filme WHERE idFilme = ?", idFilme);
+		jdbcTemplate.update("DELETE FROM Avaliacao WHERE idFilme = ?", idFilme);
+		jdbcTemplate.update("DELETE FROM Filme WHERE idFilme = ?", idFilme);		
 	}
 
 	public List<Filme> buscaTodosFilmes(){
@@ -43,15 +44,15 @@ public class FilmeDao {
 	}
 	
 	public List<Filme> buscaFilmesPorNome(String nomeBusca){
-		String plus = "%"+nomeBusca+"%";
-		return jdbcTemplate.query("SELECT idFilme, nome, genero, ano_lancamento FROM Filme WHERE lower (nome) like lower (?)", (ResultSet rs, int rowNum) -> {	
+		nomeBusca = "%"+nomeBusca+"%";
+		return jdbcTemplate.query("SELECT idFilme, nome, genero, ano_lancamento FROM Filme WHERE lower (nome) like lower(?) OR lower (genero) like lower (?) OR lower (ano_lancamento) like lower (?) ", (ResultSet rs, int rowNum) -> {	
 			int idFilme = rs.getInt("idFilme");
 			String nome = rs.getString("nome");
 			Genero genero = Genero.valueOf(rs.getString("genero"));
 			int ano_lancamento = rs.getInt("ano_lancamento");
 			Filme filme = new Filme(idFilme, nome, genero, ano_lancamento);
 			return filme;
-		}, plus);	
+		}, nomeBusca, nomeBusca, nomeBusca);	
 	}
 	
 	

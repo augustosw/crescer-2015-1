@@ -37,12 +37,17 @@ public class HomeController {
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(Model model) {
 		model.addAttribute("mensagem", msg);
+		msg="";
 		return "home";
 	}
 	
 	@RequestMapping(value = "/inicialAdm", method = RequestMethod.GET)
-	public String inicial(Model model) {
+	public String inicialAdm(Model model) {
 		return "inicialAdm";
+	}
+	@RequestMapping(value = "/inicial", method = RequestMethod.GET)
+	public String inicial(Model model) {
+		return "inicial";
 	}
 	
 	@RequestMapping(value="/logar", method= RequestMethod.POST)
@@ -86,9 +91,12 @@ public class HomeController {
 	}
 	
 	@RequestMapping(value = "/busca", method = RequestMethod.GET)
-	public String busca(Model model, @RequestParam("busca") String busca){
+	public String busca(Model model, @RequestParam("busca") String busca, HttpSession session){
 		model.addAttribute("filmes", dao.buscaFilmesPorNome(busca));
 		model.addAttribute("busca", busca);
+		Usuario usuario = (Usuario) session.getAttribute("usuarioLogado");
+		int id = usuario.getIdUsuario();
+		model.addAttribute("idusuario", id);
 		return "busca";
 	}
 	@RequestMapping(value = "/buscaAdm", method = RequestMethod.GET)
@@ -155,27 +163,40 @@ public class HomeController {
 	public String exclui(Model model, @RequestParam("idFilme")int idFilme){
 		dao.excluir(idFilme);
 		model.addAttribute("filmes", dao.buscaTodosFilmes());
-		return "redirect:/filmes";
+		return "redirect:/filmesAdm";
 	}
 	
 	@ResponseBody
-	@RequestMapping(value = "/avaliar", method = RequestMethod.GET)
-	public List<Integer> avaliarFilme(Model model, @RequestParam("rating") int rating, @RequestParam("idFilme") int idFilme, HttpSession session){
+	@RequestMapping(value = "/avaliar", method = RequestMethod.POST)
+	public int avaliarFilme(Model model, @RequestParam("rating") int rating, @RequestParam("idFilme") int idFilme, HttpSession session){
 		Usuario usuario = (Usuario) session.getAttribute("usuarioLogado");
 		int id = usuario.getIdUsuario();
 		adao.avaliarFilme(idFilme, id, rating);
-		return adao.getNotaFilmeUsuario(idFilme, id);
+		return adao.getMediaFilme(idFilme);
 	}
 	
 	@ResponseBody
-	@RequestMapping(value = "/melhores", method = RequestMethod.GET)
-	public List<Filme> inserir(Model model) {
-		List<Filme> filmes = new ArrayList<>();
-		filmes.add(new Filme("ahsha"));
-		filmes.add(new Filme("haa"));
-		filmes.add(new Filme("um filme"));
-		
-		return filmes;
+	@RequestMapping(value = "/getAvaliacao", method = RequestMethod.GET)
+	public int getAvaliacaoUsuario(Model model, @RequestParam("idFilme") int idFilme, HttpSession session){
+		Usuario usuario = (Usuario) session.getAttribute("usuarioLogado");
+		int id = usuario.getIdUsuario();
+		List<Integer> nota = (List<Integer>)adao.getNotaFilmeUsuario(idFilme, id);
+		return nota.get(0);
+	}
+	
+	@ResponseBody
+	@RequestMapping(value = "/getAvaliacoes", method = RequestMethod.GET)
+	public List<Avaliacao> getAvaliacoes(Model model, HttpSession session){
+		Usuario usuario = (Usuario) session.getAttribute("usuarioLogado");
+		int id = usuario.getIdUsuario();
+		return adao.getAvaliacao(id);
+	}
+	
+	@ResponseBody
+	@RequestMapping(value = "/getMedias", method = RequestMethod.GET)
+	public List<Avaliacao> getMedias(Model model,  HttpSession session){
+		List<Avaliacao> medias = (List<Avaliacao>)adao.getMedias();
+		return medias;
 	}
 	
 }

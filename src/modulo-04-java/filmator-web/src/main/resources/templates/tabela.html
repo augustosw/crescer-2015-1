@@ -1,0 +1,29 @@
+<table cellpadding="15" border="0" style="background-color: #FAFAFA;text-align: center;">
+	<thead>
+		<th>ID do Filme</th>
+		<th>Nome</th>
+		<th>Genero</th>	
+		<th>Ano de Lançamento</th>
+		<th>Nota</th>
+		<th>Média</th>			
+	</thead>
+	<tbody>
+		{{#filmes}}
+		<tr>
+			<td>{{idFilme}}</td>
+			<td>{{nome}}</td>
+			<td>{{genero.descricao}}</td>
+			<td>{{ano_lancamento}}</td>
+			<td><form id="rate">
+				1:<input id="nota1_{{idFilme}}" type="checkbox" name="rating" value=1 onclick="desmarcar(this, {{idFilme}})">
+				2:<input id="nota2_{{idFilme}}" type="checkbox" name="rating" value=2 onclick="desmarcar(this, {{idFilme}})">
+				3:<input id="nota3_{{idFilme}}" type="checkbox" name="rating" value=3 onclick="desmarcar(this, {{idFilme}})">
+				4:<input id="nota4_{{idFilme}}" type="checkbox" name="rating" value=4 onclick="desmarcar(this, {{idFilme}})">
+				5:<input id="nota5_{{idFilme}}" type="checkbox" name="rating" value=5 onclick="desmarcar(this, {{idFilme}})">
+				</form>
+				</td>
+			<td id="media{{idFilme}}"></td>	
+		</tr>	
+		{{/filmes}}
+	</tbody>			
+</table>

@@ -1,3 +1,4 @@
+<!doctype>
 <html>
 	<head>
 		<meta charset="utf-8">
@@ -5,7 +6,8 @@
 		<title>Site Foda de Filmes</title>
 	</head>
 	<body>
-	<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+	<script type="text/javascript" src="/script/scriptBusca.js"></script>
+	<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
 	<div id="menu">
 		<ul>
 			{{>menuNormal}}		
@@ -15,44 +17,13 @@
 			
 		<ul>
 		<h2>Busca de Filmes: {{busca}}</h2>
-		<table cellpadding="15" border="0" style="background-color: #FAFAFA;text-align: center;">
-				<thead>
-					<th>ID do Filme</th>
-					<th>Nome</th>
-					<th>Genero</th>	
-					<th>Ano de Lançamento</th>
-					<th>Nota</th>			
-				</thead>
-				<tbody>
-					{{#filmes}}
-					<tr>
-						<td>{{idFilme}}</td>
-						<td>{{nome}}</td>
-						<td>{{genero.descricao}}</td>
-						<td>{{ano_lancamento}}</td>
-						<td>1:<input type="radio" name="rating" value=1>
-							2:<input type="radio" name="rating" value=2>
-							3:<input type="radio" name="rating" value=3>
-							4:<input type="radio" name="rating" value=4>
-							5:<input type="radio" name="rating" value=5></td>
-					</tr>
-						<scrpit>
-					  		$("input[name='rating']").change(function({{idFilme}}){
-					  			$.ajax({
-					  				url: '/avaliar',
-					  				type: 'POST',
-					  			});
-					  		});
-					  	</script>
-					{{/filmes}}
-				</tbody>			
-			</table>
-		</table>
-	</ul>
-			
-  	<scrpit>
-  		$("input[name='rating']").change(function())
-  	</script>
-		
+			{{>tabela}}
+		</ul>
+		<script>
+			$(document).ready(function(){ 
+				getAvaliacoes();
+				getMedias();
+			 });
+		</script>
 	</body>
 </html>
