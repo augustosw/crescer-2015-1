@@ -8,7 +8,7 @@ namespace Dia01.ConsoleApp
 {
     internal class Jedi
     {
-        internal string Nome { get; private set; }
+        internal string Nome { get; set; }
         public Grau Grau { get; set; }
     }
 }

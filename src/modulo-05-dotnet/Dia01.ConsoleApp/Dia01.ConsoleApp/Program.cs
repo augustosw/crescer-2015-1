@@ -51,9 +51,9 @@ namespace Dia01.ConsoleApp
 
             var yoda = new Jedi
             {
-                Nome = "Yoda";
-                Grau = Grau.MESTRE;
-            }
+                Nome = "Yoda",
+                Grau = Grau.MESTRE
+            };
             
 
             Console.WriteLine(yoda.Nome);
