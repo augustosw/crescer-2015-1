@@ -8,9 +8,10 @@ namespace Dia01.ConsoleApp
 {
     internal static class StringExtentions
     {
-        internal static string ToBacon(this string str)
+        internal static string ToBacon(this string str, bool? upperCase = true)
         {
-            return str + " bacon!!!";
+            if (upperCase == true) return str + " BACON!!!";
+            return str + " bacon!!!"; 
         }
 
     }
