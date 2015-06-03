@@ -1,6 +1,7 @@
 package filmator.dao;
 
 import java.sql.ResultSet;
+import java.text.Normalizer;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -33,26 +34,32 @@ public class FilmeDao {
 	}
 
 	public List<Filme> buscaTodosFilmes(){
-		return jdbcTemplate.query("SELECT idFilme, nome, genero, ano_lancamento FROM Filme", (ResultSet rs, int rowNum) -> {	
+		return jdbcTemplate.query("SELECT idFilme, nome, genero, ano_lancamento, sinopse, imagem FROM Filme", (ResultSet rs, int rowNum) -> {	
 			int idFilme = rs.getInt("idFilme");
 			String nome = rs.getString("nome");
 			Genero genero = Genero.valueOf(rs.getString("genero"));
 			int ano_lancamento = rs.getInt("ano_lancamento");
-			Filme filme = new Filme(idFilme, nome, genero, ano_lancamento);
+			String sinopse = rs.getString("sinopse");
+			String imagem = rs.getString("imagem");
+			Filme filme = new Filme(idFilme, nome, genero, ano_lancamento, sinopse, imagem);
 			return filme;
 		});	
 	}
 	
-	public List<Filme> buscaFilmesPorNome(String nomeBusca){
-		nomeBusca = "%"+nomeBusca+"%";
-		return jdbcTemplate.query("SELECT idFilme, nome, genero, ano_lancamento FROM Filme WHERE lower (nome) like lower(?) OR lower (genero) like lower (?) OR lower (ano_lancamento) like lower (?) ", (ResultSet rs, int rowNum) -> {	
+	public List<Filme> buscaFilmes(String busca){
+		busca = Normalizer.normalize(busca, Normalizer.Form.NFD);
+		busca = busca.replaceAll("[^\\p{ASCII}]", "");
+		busca = "%"+busca+"%";
+		return jdbcTemplate.query("SELECT idFilme, nome, genero, ano_lancamento, sinopse, imagem FROM Filme WHERE lower (nome) like lower(?) OR lower (genero) like lower (?) OR lower (ano_lancamento) like lower (?) OR idFilme like ?", (ResultSet rs, int rowNum) -> {	
 			int idFilme = rs.getInt("idFilme");
 			String nome = rs.getString("nome");
 			Genero genero = Genero.valueOf(rs.getString("genero"));
 			int ano_lancamento = rs.getInt("ano_lancamento");
-			Filme filme = new Filme(idFilme, nome, genero, ano_lancamento);
+			String sinopse = rs.getString("sinopse");
+			String imagem = rs.getString("imagem");
+			Filme filme = new Filme(idFilme, nome, genero, ano_lancamento, sinopse, imagem);
 			return filme;
-		}, nomeBusca, nomeBusca, nomeBusca);	
+		}, busca, busca, busca, busca);	
 	}
 	
 	

@@ -39,8 +39,7 @@
 			
 			.busca{
 				padding: 2px 10px;
-				display: inline-block; 
-				position: absolute; right: 3;
+				position: fixed; right: 3;
 			}
 			
 			#centro {
@@ -51,7 +50,7 @@
    			    margin-top: 70px;
    			    text-align: center; 
 			    width: 500px;
-			    height: 300px;    
+			    height: 400px;    
 			}
 			
 			.botao{

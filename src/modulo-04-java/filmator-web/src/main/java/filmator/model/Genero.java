@@ -6,7 +6,17 @@ public enum Genero {
 		TERROR("Terror"), 
 		AVENTURA("Aventura"), 
 		FICCAO("Ficção"), 
-		SUSPENSE("Suspense");
+		SUSPENSE("Suspense"),
+		DRAMA("Drama"),
+		ROMANCE("Romance"),
+		GUERRA("Guerra"),
+		ANIMACAO("Animação"),
+		INFANTIL("Infantil"),
+		DOCUMENTARIO("Documentário"),
+		CURTA("Curta"),
+		WESTERN("Western - Faroeste"),
+		POLICIAL("Policial"),
+		MUSICAL("Musical");
 		
 		private String descricao;
 		

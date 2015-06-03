@@ -15,11 +15,13 @@ public class Filme {
 		
 	}
 	
-	public Filme(int idFilme, String nome, Genero genero, int ano_lancamento){
+	public Filme(int idFilme, String nome, Genero genero, int ano_lancamento, String sinopse, String imagem){
 		this.idFilme = idFilme;
 		this.nome = nome;
 		this.genero = genero;
 		this.ano_lancamento = ano_lancamento;
+		this.sinopse = sinopse;
+		this.imagem = imagem;
 	}
 	
 	
