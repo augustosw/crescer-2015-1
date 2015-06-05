@@ -13,17 +13,18 @@
 				<br>
 				<b>Sinopse:</b> <div style="height: 150px; width: 400px;">{{sinopse}}</div><br>
 				<b>Nota: </b>
-				<form id="rate">
-					1:<input id="nota1_{{idFilme}}" type="checkbox" name="rating" value=1 onclick="desmarcar(this, {{idFilme}})">
-					2:<input id="nota2_{{idFilme}}" type="checkbox" name="rating" value=2 onclick="desmarcar(this, {{idFilme}})">
-					3:<input id="nota3_{{idFilme}}" type="checkbox" name="rating" value=3 onclick="desmarcar(this, {{idFilme}})">
-					4:<input id="nota4_{{idFilme}}" type="checkbox" name="rating" value=4 onclick="desmarcar(this, {{idFilme}})">
-					5:<input id="nota5_{{idFilme}}" type="checkbox" name="rating" value=5 onclick="desmarcar(this, {{idFilme}})">
-				</form>
+				<div id="rate{{idFilme}}" class="rating">
+					<input id="nota0_{{idFilme}}" type="radio" name="rating{{idFilme}}" value=0 checked/><span id="hide"></span>
+					<input id="nota1_{{idFilme}}" type="radio" name="rating{{idFilme}}" value=1 onclick="postarAvaliacao(this, {{idFilme}})"><span></span>
+					<input id="nota2_{{idFilme}}" type="radio" name="rating{{idFilme}}" value=2 onclick="postarAvaliacao(this, {{idFilme}})"><span></span>
+					<input id="nota3_{{idFilme}}" type="radio" name="rating{{idFilme}}" value=3 onclick="postarAvaliacao(this, {{idFilme}})"><span></span>
+					<input id="nota4_{{idFilme}}" type="radio" name="rating{{idFilme}}" value=4 onclick="postarAvaliacao(this, {{idFilme}})"><span></span>
+					<input id="nota5_{{idFilme}}" type="radio" name="rating{{idFilme}}" value=5 onclick="postarAvaliacao(this, {{idFilme}})"><span></span>
+				</div>	
 				<b>Média:</b>
 				<div id="media{{idFilme}}"></div>
 			</td>		
 		</tr>	
 		{{/filmes}}
-	</tbody>			
+	</tbody>		
 </table>

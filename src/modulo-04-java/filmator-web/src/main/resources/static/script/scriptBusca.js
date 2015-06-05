@@ -1,9 +1,3 @@
-var desmarcar = function(elemento, idFilme){
-	$(elemento).prevAll().prop('checked', false);
-	$(elemento).nextAll().prop('checked', false);
-	postarAvaliacao(elemento, idFilme)
-};
-
 var postarAvaliacao = function(elemento, idFilme){
 	var rate = $(elemento).val();
 	var url = '/avaliar?rating='+rate+'&idFilme='+idFilme;
@@ -51,4 +45,4 @@ var getAvaliacoes = function(){
 				$('#nota'+nota+'_'+filme).prop('checked', true);
 			});
 		});
-};
+}

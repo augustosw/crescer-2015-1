@@ -20,6 +20,13 @@
 			{{>tabela}}
 		</ul>
 		<script>
+			$('.rating input[type="radio"]').hover(function() {
+				    $(this).nextAll('span').removeClass().addClass('jshoverNext');
+				    $(this).next('span').removeClass().addClass('jshover');
+				    $(this).prevAll('span').removeClass().addClass('jshover');
+				},function() {
+				    $('.rating input[type="radio"] + span').removeClass();
+				});
 			$(document).ready(function(){ 
 				getAvaliacoes();
 				getMedias();
